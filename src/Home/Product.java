@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Product {
     private String marka;
+    private String title;
     private LocalDate dateofmanufacture;
     private LocalDate enddate;
     private int price;

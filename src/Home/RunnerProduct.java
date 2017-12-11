@@ -11,3 +11,18 @@ public class RunnerProduct {
         Moloko.Print();
     }
 }
+
+
+
+/**
+ * 1.Product.
+ * 2.Order.
+ * 3.Store.
+ * 4.Manager.
+ * 5.Custumer.
+ * 6.Payment.
+ * 7.Shop
+ * 8. Supplier
+ * 9. Delivery
+ *
+ */
