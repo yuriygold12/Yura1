@@ -24,5 +24,4 @@ public class RunnerProduct {
  * 7.Shop
  * 8. Supplier
  * 9. Delivery
- *
  */
