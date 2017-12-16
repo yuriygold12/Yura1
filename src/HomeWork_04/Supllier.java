@@ -2,8 +2,8 @@ package HomeWork_04;
 
 public class Supllier {
 
-    Product []products;
-    int countproduct;
+    private Product []products;
+    private int countproduct;
 
     public Supllier(Product[] products, int countproduct) {
         this.products = products;

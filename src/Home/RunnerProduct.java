@@ -19,7 +19,7 @@ public class RunnerProduct {
  * 2.Order.
  * 3.Store.
  * 4.Manager.
- * 5.Custumer.
+ * 5.Customer.
  * 6.Payment.
  * 7.Shop
  * 8. Supplier

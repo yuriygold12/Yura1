@@ -3,10 +3,10 @@ package HomeWork_04;
 import java.time.LocalDate;
 
 public class Paiment {
-    int numbercatr;
-    LocalDate paumentdate;
-    String paumentcurrency;
-    String country;
+    private int numbercatr;
+    private  LocalDate paumentdate;
+    private String paumentcurrency;
+    private  String country;
 
     public Paiment(int numbercatr, LocalDate paumentdate, String paumentcurrency, String country) {
         this.numbercatr = numbercatr;

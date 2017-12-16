@@ -1,17 +1,38 @@
 package HomeWork_04;
 
 public class Order {
-    int id;
-    Product []products;
-    Custumer custumer;
-    int totolcountproducts;
-    Paiment paiment;
+    private static int nextID = 1;
+    private int id;
+    private Product[] products;
+    private Customer customer;
+    private int totolcountproducts;
+    private Paiment paiment;
 
-    public Order(int id, Product[] products, Custumer custumer, int totolcountproducts, Paiment paiment) {
-        this.id = id;
+
+    public Order() {
+        setId();
+    }
+
+    public Order(Product[] products, Customer customer, int totolcountproducts, Paiment paiment) {
+        setId();
         this.products = products;
-        this.custumer = custumer;
+        this.customer = customer;
         this.totolcountproducts = totolcountproducts;
         this.paiment = paiment;
+    }
+
+
+    private void setId() {
+        this.id = nextID;
+        nextID++;
+    }
+
+    public static int getNextID() {
+        return nextID;
+    }
+
+
+    public void showInfo(){
+        System.out.println("Order id = "+id);
     }
 }

@@ -1,15 +1,10 @@
 package HomeWork_04;
 
-public class Manager {
-    String name;
-    String surname;
-    Order order;
-    Supllier suplier;
+public class Manager extends Person {
+    private Order[] order;
 
-    public Manager(String name, String surname, Order order, Supllier suplier) {
-        this.name = name;
-        this.surname = surname;
-        this.order = order;
-        this.suplier = suplier;
+
+    public void getProducts(Supllier supllier, Store store) {
     }
+
 }
