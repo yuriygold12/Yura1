@@ -1,11 +1,6 @@
 package HomeWork5;
 
-public class Manager extends Person {
-   private Paiment paiment;
+public class Manager extends Employee{
+   WorkPlace workplace;
 
-
-    public Manager(String name, String surname, Paiment paiment) {
-        super(name, surname);
-        this.paiment = paiment;
-    }
 }

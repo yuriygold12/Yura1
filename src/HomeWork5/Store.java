@@ -1,10 +1,9 @@
 package HomeWork5;
 
 public class Store {
-    private static  Goods []goods;
-    private static int countgoods;
-    public Store() {
-
-    }
-
+     private Pursel[] pursel;
+     private int countPursel;
+     private int volume;
+     private Employee [] employees;
+     private int countEmployee;
 }
