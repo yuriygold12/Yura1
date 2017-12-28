@@ -4,7 +4,7 @@ package HomeWork6;
 
 import java.time.LocalDate;
 
-public class Driver {
-    private Car1 car;
+public class Driver extends Employee{
+    private Car car;
     private LocalDate howitworks;
 }

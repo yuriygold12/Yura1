@@ -1,6 +1,6 @@
 package HomeWork6;
 
-public class Car1 {
+public class Car {
     private int numberofSteatsthecar;
 
 }

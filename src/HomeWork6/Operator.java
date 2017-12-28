@@ -2,7 +2,7 @@ package HomeWork6;
 
 import java.time.LocalDate;
 
-public class Operator extends Person {
+public class Operator extends Employee {
     private Taxiorder[] taxiOrders;
     private int countOrder;
     private LocalDate dateofOrder;

@@ -1,5 +1,6 @@
 package HomeWork6;
 
+
 public class Taxiorder {
 
     private int id;
@@ -7,4 +8,5 @@ public class Taxiorder {
     private int priceofthetrip;
     private String placeofDeparture;
     private String placeofarrival;
+    private Payment paiment;
 }

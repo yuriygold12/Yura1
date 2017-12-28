@@ -1,6 +1,6 @@
 package HomeWork6;
 
-public class Drivers  extends Person{
+public class Drivers {
 
     private Driver[]drivers;
     private Operator[]operators;
