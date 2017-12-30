@@ -1,4 +1,5 @@
 package HomeWork5;
+
 public enum FuelType {
     MUSTANG95(28), ORIGINAL95(27);
     private final double price;

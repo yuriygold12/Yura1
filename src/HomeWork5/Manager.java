@@ -1,6 +1,5 @@
 package HomeWork5;
 
-public class Manager extends Employee{
-   WorkPlace workplace;
-
+public class Manager extends Employee {
+    WorkPlace workplace;
 }

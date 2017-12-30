@@ -1,9 +1,10 @@
 package HomeWork5;
 
+import HomeWork4.Person;
+
 import java.time.LocalDate;
 
-public class Employee extends Person{
-
+public class Employee extends Person {
     private int id;
     private double salary;
     private Department department;
