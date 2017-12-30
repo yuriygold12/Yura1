@@ -1,12 +1,11 @@
-package lesson_2;
+package HomeWork2;
 
 public class Customer {
-        String name;
-        String surname;
-        String email;
-        String addresaProwuvnnja;
-        long numbertelefon;
-
+    String name;
+    String surname;
+    String email;
+    String addresaProwuvnnja;
+    long numbertelefon;
     public Customer(String name, String surname, String email, String addresaProwuvnnja, long numbertelefon) {
         this.name = name;
         this.surname = surname;
@@ -64,10 +63,7 @@ public class Customer {
 
     public void ShowInfo()
     {
-        System.out.println("name == "+name+ "  surname == "+surname+ "  Email: == "+email+
-                " Adresaprowuvannja"+addresaProwuvnnja+"  numbertelefon"+numbertelefon);
+        System.out.println("name == "+name+ "  surname == "+surname+ "  Age: == "+email+"  Local_day == "+
+                " Adresa prowuvannja"+addresaProwuvnnja+"  numbertelefon"+numbertelefon);
     }
 }
-
-
-
