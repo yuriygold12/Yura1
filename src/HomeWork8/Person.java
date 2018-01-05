@@ -30,4 +30,9 @@ public class Person {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
+    public void showInfo(){
+        System.out.println("Name = "+name+" Suranme = "+surname);
+    }
+
 }

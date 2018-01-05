@@ -6,11 +6,13 @@ public class Client extends Person {
 
 
     public Client() {
+        super();
         this.numberPhone = 0636345;
         this.addres = "trylovskoho";
     }
 
-    public Client(int numberPhone, String addres) {
+    public Client(String name, String surname, int numberPhone, String addres) {
+        super(name, surname);
         this.numberPhone = numberPhone;
         this.addres = addres;
     }
