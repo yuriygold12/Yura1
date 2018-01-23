@@ -66,12 +66,34 @@ public class InstanceOFRunner {
         persons[9] = cli2;
 
 
+
+        System.out.println();
+
+        for (Person i: persons){
+            i.showInfo();
+        }
+
+        System.out.println();
+
+        for (Person i: persons){
+            if(i instanceof Driver){
+                i.showInfo();
+                ((Driver) i).getHours();
+                ((Driver) i).DriverShow();
+                System.out.println();
+            }
+        }
+
+
         int countDriver = 0,countOperator = 0,countClient = 0;
         int countoperator = 0;
         for(Person iter: persons)
         {
             if(iter instanceof Driver)
             {
+                System.out.println();
+                ((Driver) iter).DriverShow();
+                System.out.println();
                 countDriver++;
             }
             if(iter instanceof Operator)
@@ -91,12 +113,6 @@ public class InstanceOFRunner {
                 }
             }
 
-            if(iter instanceof Driver)
-            {
-                System.out.println();
-                ((Driver) iter).DriverShow();
-                System.out.println();
-            }
         }
         System.out.println("Кількість Водіїв кі працюють у компанії == "+ countDriver);
         System.out.println();
