@@ -1,21 +1,23 @@
 package HomeWork9;
 
+import java.util.ArrayList;
+
 public class Office {
     private String addresOffice;
-    private Operator[]operators;
-    int countOperator;
+    private ArrayList <Operator> operators;
+    private int countOperator;
 
 
-    public Office(String addresOffice)
+    public Office()
     {
         this.addresOffice = "Trulovskoho";
-        this.operators = null;
+        this.operators = new ArrayList <>();
         this.countOperator = 0;
     }
 
-    public Office(String addresOffice, Operator[] operators, int countOperator) {
+    public Office(String addresOffice, ArrayList <Operator>  operators, int countOperator) {
         this.addresOffice = addresOffice;
-        this.operators = operators;
+        this.operators = new ArrayList<>(operators);
         this.countOperator = countOperator;
     }
 
@@ -27,11 +29,11 @@ public class Office {
         this.addresOffice = addresOffice;
     }
 
-    public Operator[] getOperators() {
+    public ArrayList <Operator> getOperators() {
         return operators;
     }
 
-    public void setOperators(Operator[] operators) {
+    public void setOperators(ArrayList <Operator>  operators) {
         this.operators = operators;
     }
 
@@ -41,5 +43,12 @@ public class Office {
 
     public void setCountOperator(int countOperator) {
         this.countOperator = countOperator;
+    }
+
+    public void showinfo()
+    {
+        System.out.println("Адрес Офіса: "+addresOffice);
+        System.out.println("Operator : "+operators);
+        System.out.println("Кількість операторів у офісі: "+countOperator);
     }
 }

@@ -1,22 +1,23 @@
 package HomeWork9;
 
+import java.util.ArrayList;
+
 public class Parking {
     private String addresParking;
-    private Driver[]drivers;
+    private ArrayList <Driver> drivers;
     private int parkinglotnumber;
     private int priceParking;
 
-
     public Parking() {
         this.addresParking = "Trulovskogo";
-        this.drivers = null;
+        this.drivers = new ArrayList<Driver>();
         this.parkinglotnumber = 0;
         this.priceParking = 0;
     }
 
-    public Parking(String addresParking, Driver[] drivers, int parkinglotnumber, int priceParking) {
+    public Parking(String addresParking, ArrayList<Driver> drivers, int parkinglotnumber, int priceParking) {
         this.addresParking = addresParking;
-        this.drivers = drivers;
+        this.drivers = new ArrayList<>(drivers);
         this.parkinglotnumber = parkinglotnumber;
         this.priceParking = priceParking;
     }
@@ -29,11 +30,11 @@ public class Parking {
         this.addresParking = addresParking;
     }
 
-    public Driver[] getDrivers() {
+    public ArrayList<Driver> getDrivers() {
         return drivers;
     }
 
-    public void setDrivers(Driver[] drivers) {
+    public void setDrivers(ArrayList<Driver> drivers) {
         this.drivers = drivers;
     }
 
@@ -51,5 +52,13 @@ public class Parking {
 
     public void setPriceParking(int priceParking) {
         this.priceParking = priceParking;
+    }
+
+    public void showinfo()
+    {
+        System.out.println("Адреса Парковки: "+addresParking);
+        System.out.println("Вивід водіїв: "+drivers);
+        System.out.println("номер місця: "+priceParking);
+        System.out.println("Ціна парковки: "+priceParking);
     }
 }

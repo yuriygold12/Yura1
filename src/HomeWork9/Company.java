@@ -8,7 +8,7 @@ public class Company {
     private LocalDate datadateoffoundation;
 
     public Company() {
-        NameCompany = "TaxiSERVICE";
+        NameCompany = "Taxiservice";
         datadateoffoundation = LocalDate.now();
     }
 
@@ -38,5 +38,11 @@ public class Company {
     public void ChangeNameCompany(String name)
     {
         this.NameCompany = name;
+    }
+
+    public void showinfo()
+    {
+        System.out.println("Імя компанії: "+NameCompany);
+        System.out.println("Дата : "+datadateoffoundation);
     }
 }

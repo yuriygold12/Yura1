@@ -54,4 +54,22 @@ public class Car {
     public void setColor(String color) {
         Color = color;
     }
+
+    public void ShowCar()
+    {
+        System.out.println("Number Car == "+numberofSteatsthecar);
+        System.out.println("Marka == "+Marka);
+        System.out.println("MOdel == "+Model);
+        System.out.println("Color == "+Color);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "numberofSteatsthecar=" + numberofSteatsthecar +
+               ", Marka='" + Marka + '\'' +
+                ", Model='" + Model + '\'' +
+                ", Color='" + Color + '\'' +
+                '}';
+    }
 }

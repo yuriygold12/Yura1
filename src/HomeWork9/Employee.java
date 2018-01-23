@@ -1,8 +1,10 @@
 package HomeWork9;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Employee extends Person{
+    private static int nextID = 1;
     private int id;
     private double salary;
     private LocalDate hiredate;
@@ -10,7 +12,7 @@ public class Employee extends Person{
 
     public Employee() {
         super();
-        this.id = 0;
+        setId();
         this.salary = 12;
         this.hiredate = LocalDate.now();
         this.phonenumber = "0636345831";
@@ -26,6 +28,11 @@ public class Employee extends Person{
         this.phonenumber = phonenumber;
     }
 
+    public Employee(String name, String surname, String phonenumber) {
+        super(name, surname);
+        setId();
+        this.phonenumber = phonenumber;
+    }
 
     public int getId()
     {
@@ -35,6 +42,12 @@ public class Employee extends Person{
     public void setId(int id)
     {
         this.id = id;
+    }
+
+    public void setId()
+    {
+        this.id = nextID;
+        nextID++;
     }
 
     public double getSalary() {
@@ -68,13 +81,50 @@ public class Employee extends Person{
     }
 
 
-    public void EmployyeShow()
+    public void showinfo()
     {
-        System.out.println("Name: "+ getName());
-        System.out.println("Surname : "+ getSurname());
+        super.showinfo();
         System.out.println("id: "+ id);
         System.out.println("salery" + salary );
         System.out.println("hiredate" + hiredate);
         System.out.println("phone number" + phonenumber);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"  Employee{" + "id=" + id + ", salary=" + salary + ", hiredate="
+                + hiredate + ", phonenumber='" + phonenumber + '\'' + '}';
+    }
+
+
+   /* @Override
+    public boolean equals(Object o) {
+//        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id &&
+                Double.compare(employee.salary, salary) == 0 &&
+                Objects.equals(hiredate, employee.hiredate) &&
+                Objects.equals(phonenumber, employee.phonenumber);
+    }
+*/
+
+    public boolean equals(Object o)
+    {
+      //  if(this == o){return true;}
+        Employee emp = (Employee)o;
+        if(!super.equals(o)){return false;}
+        if(this.id == emp.id && this.salary == emp.salary && this.hiredate == emp.hiredate
+                && this.phonenumber == emp.phonenumber){return true;}
+        if(this.id != emp.id || this.salary != emp.salary || this.hiredate != emp.hiredate
+                || this.phonenumber != emp.phonenumber){return false;}
+                else{return false;}
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id, salary, hiredate, phonenumber);
     }
 }

@@ -1,39 +1,41 @@
 package HomeWork9;
 
+import java.util.ArrayList;
+
 public class Taxiservis {
-    private Driver[]drivers;
-    private Operator[]operators;
+    private ArrayList <Driver> drivers;
+    private ArrayList <Operator> operators;
     private int countDriver;
     private int countoperator;
 
     public Taxiservis() {
-        this.drivers = null;
-        this.operators = null;
+        this.drivers = new ArrayList<>();
+        this.operators = new ArrayList<>();
         this.countDriver = 0;
         this.countoperator = 0;
     }
 
-    public Taxiservis(Driver[] drivers, Operator[] operators, int countDriver, int countoperator) {
-        this.drivers = drivers;
-        this.operators = operators;
+    public Taxiservis(ArrayList<Driver> drivers, ArrayList<Operator> operators, int countDriver, int countoperator) {
+        this.drivers = new ArrayList<>(drivers);
+        this.operators = new ArrayList<>(operators);
         this.countDriver = countDriver;
         this.countoperator = countoperator;
     }
 
 
-    public Driver[] getDrivers() {
+    public ArrayList<Driver> getDrivers() {
         return drivers;
     }
 
-    public void setDrivers(Driver[] drivers) {
+    public void setDrivers(ArrayList<Driver> drivers) {
         this.drivers = drivers;
     }
 
-    public Operator[] getOperators() {
+    public ArrayList<Operator> getOperators() {
         return operators;
     }
 
-    public void setOperators(Operator[] operators) {
+    public void setOperators(ArrayList<Operator> operators) {
         this.operators = operators;
     }
 
@@ -51,5 +53,13 @@ public class Taxiservis {
 
     public void setCountoperator(int countoperator) {
         this.countoperator = countoperator;
+    }
+
+    public void showinfo()
+    {
+        System.out.println("Drivers : "+drivers);
+        System.out.println("Operators : "+operators);
+        System.out.println("count drivers: "+countDriver);
+        System.out.println("countoperatoriv"+countoperator);
     }
 }

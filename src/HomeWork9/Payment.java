@@ -24,11 +24,24 @@ public class Payment {
         this.cardNumber = cardNumber;
     }
 
+
+    public void setCardNumber() {
+        System.out.println("please enter card number:");
+
+        this.cardNumber = cardNumber;
+    }
+
     public LocalDate getPaymentDate() {
         return paymentDate;
     }
 
     public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
+    }
+
+    public void showinfo()
+    {
+        System.out.println("Номер картки:"+cardNumber);
+        System.out.println("Дата оплати"+paymentDate);
     }
 }

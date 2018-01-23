@@ -1,9 +1,7 @@
 package HomeWork9;
 
-import HomeWork8.Car;
-import HomeWork8.Employee;
-
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Driver extends Employee {
     private Car car;
@@ -16,13 +14,13 @@ public class Driver extends Employee {
     }
 
     public Driver(String name, String surname, int id, double salary, LocalDate hiredate,
-                  String phonenumber, HomeWork8.Car car, int howitworks) {
+                  String phonenumber, Car car, int howitworks) {
         super(name, surname, id, salary, hiredate, phonenumber);
         this.car = car;
         this.howitworks = howitworks;
     }
 
-    public void setCar(HomeWork8.Car car) {
+    public void setCar(Car car) {
         this.car = car;
     }
 
@@ -43,16 +41,46 @@ public class Driver extends Employee {
     }
 
 
-    public void DriverShow()
+    public void showinfo()
     {
-        System.out.println();
-        EmployyeShow();
-        System.out.println();
-        System.out.println("Вивід Сar");
-        System.out.println("Номер авто: "+ car.getNumberofSteatsthecar());
-        System.out.println("Марка авто: " + car.getMarka());
-        System.out.println("Модель авто: " + car.getModel());
-        System.out.println("Колір авто: "+ car.getColor());
-        System.out.println("Скільки працює"+howitworks);
+        super.showinfo();
+        System.out.println("");
+        car.ShowCar();
+        System.out.println("Вивід авто == "+howitworks);
+    }
+
+
+    @Override
+    public String toString() {
+        return super.toString() + "  Driver{" + "car=" + car.toString() + ",  howitworks=" + howitworks + '}';
+    }
+
+
+   /*@Override
+    public boolean equals(Object o) {
+        //if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Driver driver = (Driver) o;
+        return howitworks == driver.howitworks &&
+                Objects.equals(car, driver.car);
+    }
+
+   */
+
+    public boolean equals(Object o)
+    {
+       // if(this == o)return true;
+        Driver ob = (Driver)o;
+        if(!super.equals(o)){return false;}
+        if(this.howitworks == ob.howitworks && this.car == ob.car ){return true;}
+        if(this.howitworks != ob.howitworks || this.car != ob.car ){return false;}
+        else { return false; }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), car, howitworks);
     }
 }

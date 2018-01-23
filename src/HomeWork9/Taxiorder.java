@@ -86,4 +86,28 @@ public class Taxiorder {
     public void setDriver(Driver driver) {
         Driver = driver;
     }
+
+    public void showTaxiOrder()
+    {
+        System.out.println("id =="+id);
+        System.out.println("Кліент == "+client);
+        System.out.println("Ціна"+priceofthetrip);
+        System.out.println("Антонича == "+placeofDeparture);
+        System.out.println("Трильовського == "+placeofarrival);
+        System.out.println("Оплата == "+paiment);
+        System.out.println("Водій == "+Driver);
+    }
+
+    @Override
+    public String toString() {
+        return "Taxiorder{" +
+                "id=" + id +
+                ", client=" + client +
+                ", priceofthetrip=" + priceofthetrip +
+                ", placeofDeparture='" + placeofDeparture + '\'' +
+                ", placeofarrival='" + placeofarrival + '\'' +
+                ", paiment=" + paiment +
+                ", Driver=" + Driver +
+                '}';
+    }
 }
