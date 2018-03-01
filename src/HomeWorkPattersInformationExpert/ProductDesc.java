@@ -38,14 +38,24 @@ public class ProductDesc {
         this.price = price;
     }
 
+
+    public boolean equalsName(String name) {
+        //Назар о цей метод я використовую у класі сток у методі фінд(найм) я тільки не знаю чи правильно
+        //тут ця умова що нижче воно працює але чи так правильн????
+        //if(descripsen == name)воно світить ти казав зі стрінгами не можна????
+        if (description.equals(name)) {
+            return true;
+        }
+        return false;
+    }
+
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        //if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDesc that = (ProductDesc) o;
-        return price == that.price &&
-                ItemId == that.ItemId &&
-                Objects.equals(description, that.description);
+        return Objects.equals(description, that.description);
     }
 
     @Override
@@ -63,11 +73,10 @@ public class ProductDesc {
                 '}';
     }
 
-    public void showinfo()
-    {
+    public void showinfo() {
         System.out.println("Продукт");
         System.out.println("description: " + description);
-        System.out.println("price: " + price );
+        System.out.println("price: " + price);
         System.out.println("ItemId: " + ItemId);
     }
 }

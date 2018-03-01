@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class CashRegister {
 
+
+
+    //Назар подивись добре тут я тут не впевний чи всі методи я зробив правильно і чи взагалі я зробив ті методи і кількість іх
+    //кількість скільки іх треба було
     private static ArrayList<Sale> sales = new ArrayList<>();
 
     public static void addCheck(Sale sale) {

@@ -68,9 +68,10 @@ public class Sale {
         System.out.println("time: " + time);
         for(SalesLineItem i : salesitem)
         {
-            System.out.println("salesitem: " + salesitem);
+            i.showinfo();
         }
 
+        System.out.println("");
     }
 
     @Override
