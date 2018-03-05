@@ -13,7 +13,7 @@ public class SalesLineItem {
         this.item = null;
         this.quantita = 0;
     }
-
+//11
     public SalesLineItem(ProductDesc item, int quantita) {
         this.item = item;
         this.quantita = quantita;

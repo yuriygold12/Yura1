@@ -13,7 +13,7 @@ public class ProductDesc {
         this.description = description;
         this.price = price;
     }
-
+//11
     public ProductDesc() {
         this.ItemId = 0;
         this.description = null;

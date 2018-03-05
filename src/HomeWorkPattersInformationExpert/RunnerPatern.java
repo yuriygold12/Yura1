@@ -103,7 +103,7 @@ public class RunnerPatern {
         CashRegister.showCheck(sal);
         System.out.println("  Тут Інфа про всі чеки  ");
         */
-
+        //111
 
         Stock.creatProduct();
         Stock.creatProduct();

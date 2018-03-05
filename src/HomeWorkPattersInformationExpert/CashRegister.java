@@ -14,7 +14,7 @@ public class CashRegister {
             System.out.println("not the check");
         }
     }
-
+//11
     public static void CreatNewSale()
     {
         Sale sale1 = new Sale();

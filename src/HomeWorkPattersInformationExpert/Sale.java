@@ -18,7 +18,7 @@ public class Sale {
         this.time = time;
         this.salesitem = salesitem;
     }
-
+//11
     public Sale() {
         this.data = LocalDate.now();
         this.time = LocalDate.now();
