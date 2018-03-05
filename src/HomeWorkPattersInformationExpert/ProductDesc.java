@@ -1,6 +1,6 @@
 package HomeWorkPattersInformationExpert;
-
 import java.util.Objects;
+import java.util.Scanner;
 
 public class ProductDesc {
 
@@ -12,6 +12,12 @@ public class ProductDesc {
         this.ItemId = itemId;
         this.description = description;
         this.price = price;
+    }
+
+    public ProductDesc() {
+        this.ItemId = 0;
+        this.description = null;
+        this.price = 0;
     }
 
     public int getPrice() {
@@ -38,18 +44,36 @@ public class ProductDesc {
         this.price = price;
     }
 
-
     public boolean equalsName(String name) {
-        //Назар о цей метод я використовую у класі сток у методі фінд(найм) я тільки не знаю чи правильно
-        //тут ця умова що нижче воно працює але чи так правильн????
-        //if(descripsen == name)воно світить ти казав зі стрінгами не можна????
         if (description.equals(name)) {
             return true;
         }
         return false;
     }
 
+    public boolean equalsId(int id) {
+        if (ItemId == id) {
+            return true;
+        }
+        return false;
+    }
 
+    //Цей метод закоментований залишив у разі потреби.
+    /*public ProductDesc creatNewProductDesc()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введіть id продукту: ");
+        int id = scan.nextInt();
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Введіть назву продукту: ");
+        String description = scan.nextLine();
+        Scanner scan2 = new Scanner(System.in);
+        System.out.println("Введіть назву продукту: ");
+        int price = scan.nextInt();
+        ProductDesc productDesc = new ProductDesc(id,description,price);
+        return productDesc;
+    }
+    */
     @Override
     public boolean equals(Object o) {
         //if (this == o) return true;
@@ -64,7 +88,7 @@ public class ProductDesc {
         return Objects.hash(description, price, ItemId);
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "ProductDesc{" +
                 "description='" + description + '\'' +
@@ -72,8 +96,8 @@ public class ProductDesc {
                 ", ItemId=" + ItemId +
                 '}';
     }
-
-    public void showinfo() {
+    */
+    public void showProductDesc() {
         System.out.println("Продукт");
         System.out.println("description: " + description);
         System.out.println("price: " + price);

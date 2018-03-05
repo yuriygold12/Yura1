@@ -1,25 +1,80 @@
 package HomeWorkPattersInformationExpert;
 
-import javax.naming.PartialResultException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Stock {
     private static ArrayList<ProductDesc> products = new ArrayList<>();
 
+
     public static void addProduct(ProductDesc product) {
-        if (product != null) {
+        if (Stock.verifyProduct(product)) {
             products.add(product);
         } else {
             System.out.println("Неможливо додати пустий обект");
         }
     }
 
+    public static void addProduct()
+    {
+        ProductDesc product = Stock.creatProduct();
+        if(Stock.verifyProduct(product))
+        {
+            products.add(product);
+        }
+        else
+        {
+            System.out.println("Неможливо додати пустий обект");
+        }
+    }
+
+    public static ProductDesc creatProduct()
+    {
+       Scanner scan = new Scanner(System.in);
+       System.out.println("Введіть id продукту: ");
+       int id = scan.nextInt();
+       Scanner scan1 = new Scanner(System.in);
+       System.out.println("Введіть назву продукту: ");
+       String description = scan1.nextLine();
+       Scanner scan2 = new Scanner(System.in);
+       System.out.println("Введіть price продукту: ");
+       int price = scan2.nextInt();
+       ProductDesc productDesc = new ProductDesc(id,description,price);
+       products.add(productDesc);
+       return productDesc;
+    }
+
+
+    public static ProductDesc FindProduct(int id)
+    {
+       ProductDesc ob = null;
+       for(ProductDesc i : products)
+       {
+           if(i.equalsId(id))
+           {
+               ob = i;
+               products.remove(i);
+           }
+           if(ob!=null)
+           {
+               return ob;
+           }
+
+       }
+       return ob;
+    }
+
+
+        private static boolean verifyProduct(ProductDesc productdesc) {
+        if (productdesc.equalsName(productdesc.getDescription())) {
+            return false;
+        }
+        else {return true;}
+    }
 
     public static ArrayList<ProductDesc> getProduct(ProductDesc product, int q) {
         ArrayList<ProductDesc> products1 = new ArrayList<>();
-        if (product != null && products != null) {
+        if (Stock.verifyProduct(product) && products != null) {
             for (ProductDesc pro : products) {
                 if (pro.equals(product)) {
                     products1.add(pro);
@@ -33,8 +88,7 @@ public class Stock {
                 }
                 return products1;
             }
-            if(products1.size() == 0)
-            {
+            if (products1.size() == 0) {
                 System.out.println("Не знайшлось даного продукту");
             }
             if (products1.size() != 0 && products1.size() != q) {
@@ -55,13 +109,10 @@ public class Stock {
             }
 
         } else {
-            System.out.println("Now");
+            System.out.println("На складі немає елементів");
         }
-        //Тут у мене є питання я мушу щось повернути повертаю це бо якщо повертаю нулл то помилка якщо визиваю у мейні
-        //а так я повептаю ерей лыст.
-        return products;
+        return products1;
     }
-
 
     public static ArrayList<ProductDesc> getProduct(String description, int q) {
         ArrayList<ProductDesc> products1 = new ArrayList<>();
@@ -79,8 +130,7 @@ public class Stock {
                 }
                 return products1;
             }
-            if(products1.size() == 0)
-            {
+            if (products1.size() == 0) {
                 System.out.println("Не знайшлось даного продукту");
             }
             if (products1.size() != 0 && products1.size() != q) {
@@ -98,16 +148,12 @@ public class Stock {
                 } else {
                     System.out.println("Ви не забажали взяти таку кількість товару");
                 }
-
             }
         } else {
-            System.out.println("Now");
+            System.out.println("На складі немає елементів");
         }
-        //Тут у мене є питання я мушу щось повернути повертаю це бо якщо повертаю нулл то помилка якщо визиваю у мейні
-        //а так я повептаю ерей лыст.
-        return products;
+        return products1;
     }
-
 
     public static boolean findProduct(String name) {
         if (products != null) {
@@ -123,9 +169,8 @@ public class Stock {
         return false;
     }
 
-
     public static boolean findProduct(ProductDesc productDesc) {
-        if (products != null && productDesc != null) {
+        if (products != null && Stock.verifyProduct(productDesc)) {
             for (ProductDesc i : products) {
                 if (i.equals(productDesc)) {
                     System.out.println("Найшли продукт");
@@ -139,10 +184,9 @@ public class Stock {
         return false;
     }
 
-
     public static void showinfo() {
         for (ProductDesc pro : products) {
-            pro.showinfo();
+            pro.showProductDesc();
         }
     }
 }

@@ -1,6 +1,7 @@
 package HomeWorkPattersInformationExpert;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class SalesLineItem {
 
@@ -18,11 +19,21 @@ public class SalesLineItem {
         this.quantita = quantita;
     }
 
+    public SalesLineItem addSalesItem(ProductDesc product)
+    {
+        SalesLineItem ob = new SalesLineItem();
+        ob.item = product;
+        ob.quantita = 0;
+
+        return ob;
+    }
+
     public int getSubTotal()
     {
         int totolPrice = item.getPrice() * quantita;
         return totolPrice;
     }
+
 
     public ProductDesc getItem() {
         return item;
@@ -57,9 +68,9 @@ public class SalesLineItem {
     }
 
 
-    public void showinfo() {
+    public void showSalenItem() {
         System.out.println("SalesLineItem:");
-        item.showinfo();
+        item.showProductDesc();
         System.out.println("quantita: " + quantita);
         System.out.println(" ");
     }

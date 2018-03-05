@@ -1,17 +1,13 @@
 package HomeWorkPattersInformationExpert;
-
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CashRegister {
 
-
-
-    //Назар подивись добре тут я тут не впевний чи всі методи я зробив правильно і чи взагалі я зробив ті методи і кількість іх
-    //кількість скільки іх треба було
     private static ArrayList<Sale> sales = new ArrayList<>();
 
     public static void addCheck(Sale sale) {
-        if (sale != null) // Ось тут я так і не докінця поняв як мені правльно зробити я поняв проблему не поняв як іі вирішити(((
+        if (sale != null)
         {
             sales.add(sale);
         } else {
@@ -19,15 +15,23 @@ public class CashRegister {
         }
     }
 
+    public static void CreatNewSale()
+    {
+        Sale sale1 = new Sale();
+        sale1.addSaleLineItem();
+        sales.add(sale1);
+    }
+
     public static Sale searchCeck(Sale sale) {
+        Sale sale2 = null;
         if (sale != null && sales != null) {
             int count = 0;
-            Sale sale2 = new Sale();
+
             for (Sale cech : sales) {
                 if (cech.equals(sale)) {
-                    ++count;
+                    count++;
                     sale2 = cech;
-                    return sale2;
+                    break;
                 }
             }
             if (count == 0) {
@@ -36,21 +40,24 @@ public class CashRegister {
         } else {
             System.out.println("Немае чеків");
         }
-        return null;//Ось тут недоганяю
+
+        return sale2;
     }
 
     public static void showCheck(Sale sale) {
         for (Sale ceck : sales) {
             if (ceck.equals(sale)) {
-                ceck.showinfo();
+                ceck.showSale();
+                break;
             }
         }
     }
 
-
-    public static void showinfo() {
+    public static void showCashRegisterCheking() {
         for (Sale i : sales) {
-            i.showinfo();
+            i.showSale();
         }
     }
 }
+
+

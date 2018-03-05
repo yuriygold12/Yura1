@@ -1,16 +1,17 @@
 package HomeWorkPattersInformationExpert;
 
 //import javax.xml.bind.SchemaOutputResolver;
+import HomeWork3.Product;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Sale {
     private LocalDate data;
     private LocalDate time;
     private ArrayList<SalesLineItem> salesitem;
-
-
 
     public Sale(LocalDate data, LocalDate time, ArrayList<SalesLineItem> salesitem) {
         this.data = data;
@@ -21,8 +22,29 @@ public class Sale {
     public Sale() {
         this.data = LocalDate.now();
         this.time = LocalDate.now();
-        this.salesitem = null;
+        this.salesitem = new ArrayList<>();
     }
+
+    public void addSaleLineItem()
+    {
+        SalesLineItem sale1 = new SalesLineItem();
+        System.out.println("Введіть скільки ви продуктів бажаете знайти: ");
+        Scanner scan = new Scanner(System.in);
+        int count = scan.nextInt();
+        ArrayList<SalesLineItem> salesLineItems = new ArrayList<SalesLineItem>();
+        for(int i = 0;i < count;i++)
+        {
+            System.out.println("Знайдіть товар по id який ви бажаете додати у покупку: ");
+            Scanner scan1 = new Scanner(System.in);
+            int id = scan1.nextInt();
+            ProductDesc ob = Stock.FindProduct(id);
+            salesLineItems.add(sale1.addSalesItem(ob));
+        }
+        data = LocalDate.now();
+        time = LocalDate.now();
+        salesitem = salesLineItems;
+    }
+
     public double getTotol()
     {
         double SumaTotol = 0;
@@ -62,15 +84,14 @@ public class Sale {
         return Objects.hash(data, time, salesitem);
     }
 
-    public void showinfo() {
+    public void showSale() {
         System.out.println("Sale))");
         System.out.println("data: " + data);
         System.out.println("time: " + time);
         for(SalesLineItem i : salesitem)
         {
-            i.showinfo();
+            i.showSalenItem();
         }
-
         System.out.println("");
     }
 
