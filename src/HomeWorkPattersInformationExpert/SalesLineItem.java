@@ -13,23 +13,23 @@ public class SalesLineItem {
         this.item = null;
         this.quantita = 0;
     }
-//11
+
+
     public SalesLineItem(ProductDesc item, int quantita) {
         this.item = item;
         this.quantita = quantita;
     }
 
-    public SalesLineItem addSalesItem(ProductDesc product)
-    {
+
+    public static SalesLineItem addSalesItem(ProductDesc product) {
         SalesLineItem ob = new SalesLineItem();
         ob.item = product;
-        ob.quantita = 0;
-
+        ob.quantita = 1;
         return ob;
     }
 
-    public int getSubTotal()
-    {
+
+    public int getSubTotal() {
         int totolPrice = item.getPrice() * quantita;
         return totolPrice;
     }
@@ -76,7 +76,7 @@ public class SalesLineItem {
     }
 
 
-    @Override
+    /*@Override
     public String toString() {
 
         return "SalesLineItem{" +
@@ -84,4 +84,5 @@ public class SalesLineItem {
                 ", quantita=" + quantita +
                 '}';
     }
+    */
 }

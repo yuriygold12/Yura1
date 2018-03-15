@@ -1,4 +1,6 @@
 package HomeWorkPattersInformationExpert;
+
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -7,17 +9,56 @@ public class ProductDesc {
     private String description;
     private int price;
     private int ItemId;
+    private LocalDate dateOfmanufacture;
+    private LocalDate dataOfEndDate;
 
-    public ProductDesc(int itemId, String description, int price) {
+
+    public ProductDesc(int itemId, String description, int price, LocalDate dateOfmanufacture, LocalDate dataOfEndDate) {
         this.ItemId = itemId;
         this.description = description;
         this.price = price;
+        this.dateOfmanufacture = dateOfmanufacture;
+        this.dataOfEndDate = dataOfEndDate;
     }
-//11
+
     public ProductDesc() {
-        this.ItemId = 0;
         this.description = null;
         this.price = 0;
+        this.ItemId = 0;
+        this.dateOfmanufacture = LocalDate.of(2018, 02, 29);
+        this.dataOfEndDate = LocalDate.of(2018, 03, 13);
+    }
+
+    public static LocalDate DataProduct() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Введіть рік виготовлення продукту: ");
+        int year = sc.nextInt();
+        Scanner sc1 = new Scanner(System.in);
+        System.out.print("Введіть місяць виготовлення продукту: ");
+        int mouth = sc1.nextInt();
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print("Введіть день виготовлення продукту: ");
+        int day = sc2.nextInt();
+        LocalDate datamanufecture1;
+        datamanufecture1 = LocalDate.of(year, mouth, day);
+        return datamanufecture1;
+    }
+
+    //Назар дивись у цьому методі я не міг зробити порівняня з локал дейтемми.
+    public static boolean oravaliditem(ProductDesc productDesc) {
+        LocalDate localDate = LocalDate.now();
+        if (productDesc.dataOfEndDate.getYear() > localDate.getYear()) {
+            return true;
+        }
+        return false;
+    }
+
+    public LocalDate getDateOfmanufacture() {
+        return dateOfmanufacture;
+    }
+
+    public LocalDate getDataOfEndDate() {
+        return dataOfEndDate;
     }
 
     public int getPrice() {
@@ -58,6 +99,16 @@ public class ProductDesc {
         return false;
     }
 
+
+    public static boolean verifayproduct(ProductDesc productDesc) {
+        if (productDesc.description != null && productDesc.ItemId != 0 && productDesc.price != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     //Цей метод закоментований залишив у разі потреби.
     /*public ProductDesc creatNewProductDesc()
     {
@@ -74,6 +125,8 @@ public class ProductDesc {
         return productDesc;
     }
     */
+
+
     @Override
     public boolean equals(Object o) {
         //if (this == o) return true;
@@ -97,10 +150,16 @@ public class ProductDesc {
                 '}';
     }
     */
+
     public void showProductDesc() {
+        System.out.println(" ");
         System.out.println("Продукт");
+        System.out.println(" ");
         System.out.println("description: " + description);
         System.out.println("price: " + price);
         System.out.println("ItemId: " + ItemId);
+        System.out.println("Datamanifectory: " + dateOfmanufacture);
+        System.out.println("DataEnd: " + dataOfEndDate);
+        System.out.println(" ");
     }
 }

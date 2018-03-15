@@ -1,5 +1,4 @@
 package HomeWorkPattersInformationExpert;
-
 //import javax.xml.bind.SchemaOutputResolver;
 import HomeWork3.Product;
 
@@ -18,39 +17,50 @@ public class Sale {
         this.time = time;
         this.salesitem = salesitem;
     }
-//11
+
     public Sale() {
         this.data = LocalDate.now();
         this.time = LocalDate.now();
         this.salesitem = new ArrayList<>();
     }
 
-    public void addSaleLineItem()
-    {
-        SalesLineItem sale1 = new SalesLineItem();
-        System.out.println("Введіть скільки ви продуктів бажаете знайти: ");
-        Scanner scan = new Scanner(System.in);
-        int count = scan.nextInt();
-        ArrayList<SalesLineItem> salesLineItems = new ArrayList<SalesLineItem>();
-        for(int i = 0;i < count;i++)
-        {
-            System.out.println("Знайдіть товар по id який ви бажаете додати у покупку: ");
-            Scanner scan1 = new Scanner(System.in);
-            int id = scan1.nextInt();
-            ProductDesc ob = Stock.FindProduct(id);
-            salesLineItems.add(sale1.addSalesItem(ob));
-        }
+    public void addSaleLineItem() {
         data = LocalDate.now();
         time = LocalDate.now();
-        salesitem = salesLineItems;
+        System.out.print("Введіть скільки ви продуктів бажаете знайти: ");
+        Scanner scan = new Scanner(System.in);
+        int count = scan.nextInt();
+        //ArrayList<SalesLineItem> salesLineItems = new ArrayList<SalesLineItem>();
+        for (int i = 0; i < count; i++) {
+            System.out.print("Знайдіть товар по id який ви бажаете додати у покупку: ");
+            Scanner scan1 = new Scanner(System.in);
+            int id = scan1.nextInt();
+            if (!Stock.findProduct(id)) {
+                System.out.println("Не найшлось такого товару з таким айді");
+                System.out.println(" ");
+            } else {
+                salesitem.add(SalesLineItem.addSalesItem(Stock.FindProduct(id)));
+                //salesLineItems.add(SalesLineItem.addSalesItem(Stock.FindProduct(id)));
+            }
+        }
+        //salesitem.addAll(salesLineItems);
     }
 
-    public double getTotol()
-    {
+    public boolean VerifytyItems() {
+
+        for (SalesLineItem i : salesitem) {
+            if (Stock.verifyProduct(i.getItem())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public double getTotol() {
         double SumaTotol = 0;
-        for(SalesLineItem i : salesitem)
-        {
-            SumaTotol+=i.getSubTotal();
+        for (SalesLineItem i : salesitem) {
+            SumaTotol += i.getSubTotal();
         }
         return SumaTotol;
     }
@@ -85,17 +95,18 @@ public class Sale {
     }
 
     public void showSale() {
-        System.out.println("Sale))");
+        System.out.println(" ");
+        System.out.println("Sale");
         System.out.println("data: " + data);
         System.out.println("time: " + time);
-        for(SalesLineItem i : salesitem)
-        {
+        for (SalesLineItem i : salesitem) {
             i.showSalenItem();
         }
-        System.out.println("");
+        System.out.println(" ");
     }
 
-    @Override
+
+    /*@Override
     public String toString() {
 
         return "Sale{" +
@@ -104,5 +115,6 @@ public class Sale {
                 ", salesitem=" + salesitem+
                 '}';
     }
+    */
 }
 

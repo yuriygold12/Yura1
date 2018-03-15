@@ -1,81 +1,128 @@
 package HomeWorkPattersInformationExpert;
 
+import HomeWork3.Product;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Stock {
-    private static ArrayList<ProductDesc> products = new ArrayList<>();
+    private static ArrayList<ProductDesc> avaibeleproducts = new ArrayList<>();//Доступні для продажу.
+    private static ArrayList<ProductDesc> incamproducts = new ArrayList<>();//Першим чином додаю у прихід.
+    private static ArrayList<ProductDesc> spusaniProductu = new ArrayList<>();//Списані продукти.
 
 
     public static void addProduct(ProductDesc product) {
         if (Stock.verifyProduct(product)) {
-            products.add(product);
+            incamproducts.add(product);
         } else {
             System.out.println("Неможливо додати пустий обект");
         }
     }
 
-    public static void addProduct()
-    {
+
+    public static void addProduct() {
         ProductDesc product = Stock.creatProduct();
-        if(Stock.verifyProduct(product))
-        {
-            products.add(product);
-        }
-        else
-        {
+        if (Stock.verifyProduct(product)) {
+            incamproducts.add(product);
+        } else {
             System.out.println("Неможливо додати пустий обект");
         }
     }
 
-    public static ProductDesc creatProduct()
-    {
-       Scanner scan = new Scanner(System.in);
-       System.out.println("Введіть id продукту: ");
-       int id = scan.nextInt();
-       Scanner scan1 = new Scanner(System.in);
-       System.out.println("Введіть назву продукту: ");
-       String description = scan1.nextLine();
-       Scanner scan2 = new Scanner(System.in);
-       System.out.println("Введіть price продукту: ");
-       int price = scan2.nextInt();
-       ProductDesc productDesc = new ProductDesc(id,description,price);
-       products.add(productDesc);
-       return productDesc;
-    }
 
-//11
-    public static ProductDesc FindProduct(int id)
-    {
-       ProductDesc ob = null;
-       for(ProductDesc i : products)
-       {
-           if(i.equalsId(id))
-           {
-               ob = i;
-               products.remove(i);
-           }
-           if(ob!=null)
-           {
-               return ob;
-           }
-
-       }
-       return ob;
+    public static ProductDesc creatProduct() {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введіть id продукту: ");
+        int id = scan.nextInt();
+        Scanner scan1 = new Scanner(System.in);
+        System.out.print("Введіть назву продукту: ");
+        String description = scan1.nextLine();
+        Scanner scan2 = new Scanner(System.in);
+        System.out.print("Введіть price продукту: ");
+        int price = scan2.nextInt();
+        System.out.print("Дата початку продукту: ");
+        LocalDate dataManifactori = ProductDesc.DataProduct();
+        System.out.print("Дата Закінчення: ");
+        LocalDate dataEnd = ProductDesc.DataProduct();
+        ProductDesc productDesc = new ProductDesc(id, description, price, dataManifactori, dataEnd);
+        incamproducts.add(productDesc);
+        return productDesc;
     }
 
 
-        private static boolean verifyProduct(ProductDesc productdesc) {
-        if (productdesc.equalsName(productdesc.getDescription())) {
+    public static ProductDesc FindProduct(int id) {
+        ProductDesc prod = null;
+        for (ProductDesc i : avaibeleproducts) {
+            if (i.equalsId(id)) {
+                prod = i;
+                avaibeleproducts.remove(i);
+                break;
+            }
+        }
+        return prod;
+    }
+
+    public static boolean findProduct(int id) {
+        for (ProductDesc i : avaibeleproducts) {
+            if (i.equalsId(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean verifyProduct(ProductDesc productdesc) {
+        if (ProductDesc.verifayproduct(productdesc)) {
+            return true;
+        } else {
             return false;
         }
-        else {return true;}
+    }
+
+    public static void RevalueGoods() {
+        System.out.print("Введіть id товару якого ви бажаете змінити ціну");
+        Scanner sc = new Scanner(System.in);
+        int id = sc.nextInt();
+        if (avaibeleproducts.size() != 0) {
+            for (int i = 0; i < avaibeleproducts.size(); i++) {
+                ProductDesc productDesc = avaibeleproducts.get(i);
+                if (productDesc.equalsId(id)) {
+                    System.out.println("Введіть нову ціну продукту: ");
+                    Scanner sc1 = new Scanner(System.in);
+                    int value = sc1.nextInt();
+                    productDesc.setPrice(value);
+                    avaibeleproducts.remove(i);
+                    avaibeleproducts.add(i, productDesc);
+                }
+            }
+        } else {
+            System.out.println("Пустий склад з продуктами де би мали продаватись товари");
+        }
+    }
+
+
+    public static void ValidityProduct() {
+        for (int i = 0; i < incamproducts.size(); i++) {
+            {
+                ProductDesc productDesc = incamproducts.get(i);
+                if (ProductDesc.oravaliditem(productDesc)) {
+                    avaibeleproducts.add(productDesc);
+                    incamproducts.remove(i);
+                } else {
+                    spusaniProductu.add(productDesc);
+                    incamproducts.remove(i);
+                }
+                i--;
+            }
+        }
     }
 
     public static ArrayList<ProductDesc> getProduct(ProductDesc product, int q) {
         ArrayList<ProductDesc> products1 = new ArrayList<>();
-        if (Stock.verifyProduct(product) && products != null) {
-            for (ProductDesc pro : products) {
+        if (Stock.verifyProduct(product) && (!avaibeleproducts.isEmpty())) {
+            for (ProductDesc pro : avaibeleproducts) {
                 if (pro.equals(product)) {
                     products1.add(pro);
                 }
@@ -83,7 +130,7 @@ public class Stock {
             if (products1.size() == q) {
                 for (ProductDesc prod : products1) {
                     if (prod.equals(product)) {
-                        products.remove(prod);
+                        avaibeleproducts.remove(prod);
                     }
                 }
                 return products1;
@@ -99,7 +146,7 @@ public class Stock {
                 if (number == 1) {
                     for (ProductDesc prod : products1) {
                         if (prod.equals(product)) {
-                            products.remove(prod);
+                            avaibeleproducts.remove(prod);
                         }
                     }
                     return products1;
@@ -114,10 +161,11 @@ public class Stock {
         return products1;
     }
 
+
     public static ArrayList<ProductDesc> getProduct(String description, int q) {
         ArrayList<ProductDesc> products1 = new ArrayList<>();
-        if (products != null) {
-            for (ProductDesc i : products) {
+        if ((!avaibeleproducts.isEmpty())) {
+            for (ProductDesc i : avaibeleproducts) {
                 if (i.equalsName(description)) {
                     products1.add(i);
                 }
@@ -125,7 +173,7 @@ public class Stock {
             if (products1.size() == q) {
                 for (ProductDesc prod : products1) {
                     if (prod.equalsName(description)) {
-                        products.remove(prod);
+                        avaibeleproducts.remove(prod);
                     }
                 }
                 return products1;
@@ -141,7 +189,7 @@ public class Stock {
                 if (number == 1) {
                     for (ProductDesc prod : products1) {
                         if (prod.equalsName(description)) {
-                            products.remove(prod);
+                            avaibeleproducts.remove(prod);
                         }
                     }
                     return products1;
@@ -155,9 +203,10 @@ public class Stock {
         return products1;
     }
 
+
     public static boolean findProduct(String name) {
-        if (products != null) {
-            for (ProductDesc i : products) {
+        if ((!avaibeleproducts.isEmpty())) {
+            for (ProductDesc i : avaibeleproducts) {
                 if (i.equalsName(name)) {
                     return true;
                 }
@@ -169,9 +218,10 @@ public class Stock {
         return false;
     }
 
+
     public static boolean findProduct(ProductDesc productDesc) {
-        if (products != null && Stock.verifyProduct(productDesc)) {
-            for (ProductDesc i : products) {
+        if ((!avaibeleproducts.isEmpty()) && Stock.verifyProduct(productDesc)) {
+            for (ProductDesc i : avaibeleproducts) {
                 if (i.equals(productDesc)) {
                     System.out.println("Найшли продукт");
                     return true;
@@ -184,9 +234,28 @@ public class Stock {
         return false;
     }
 
-    public static void showinfo() {
-        for (ProductDesc pro : products) {
-            pro.showProductDesc();
+
+    public static void showStock() {
+        System.out.println("Товари разом спорчені і ще не виставленні на продаж");
+        System.out.println(" ");
+        if (!incamproducts.isEmpty()) {
+            for (ProductDesc pro : incamproducts) {
+                pro.showProductDesc();
+            }
+        }
+        System.out.println("Дійсні товари для продажу");
+        System.out.println(" ");
+        if (!avaibeleproducts.isEmpty()) {
+            for (ProductDesc pro : avaibeleproducts) {
+                pro.showProductDesc();
+            }
+        }
+        System.out.println("Товари недійсні");
+        System.out.println(" ");
+        if (!spusaniProductu.isEmpty()) {
+            for (ProductDesc pro : spusaniProductu) {
+                pro.showProductDesc();
+            }
         }
     }
 }

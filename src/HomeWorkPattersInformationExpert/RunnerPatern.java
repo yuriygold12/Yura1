@@ -103,25 +103,34 @@ public class RunnerPatern {
         CashRegister.showCheck(sal);
         System.out.println("  Тут Інфа про всі чеки  ");
         */
-        //111
 
+        //Cтворення продукту у Складі
         Stock.creatProduct();
         Stock.creatProduct();
         Stock.creatProduct();
         Stock.creatProduct();
-        Stock.showinfo();
+
+        //Перевірка продукту на складі і розприділення по кімнатах ти пу на складах.
+        Stock.ValidityProduct();
+        //Вивід скаду
+        Stock.showStock();
+
+        //Пошук по ід товару і зміна ціни перед продажем тіпа.
+        Stock.RevalueGoods();
+        Stock.showStock();
+
         System.out.println(" ");
         System.out.println("Скалад");
         System.out.println(" ");
 
-
+        //Створення попупки і додавання до касово апарату.
         CashRegister.CreatNewSale();
+
         System.out.println(" ");
-        System.out.println("Чек");
+        //Друк чеків у мому випадку один чек.
         CashRegister.showCashRegisterCheking();
         System.out.println(" ");
-        System.out.println("Скалад");
-        Stock.showinfo();
+        //Stock.showStock();
         System.out.println(" ");
     }
 }
