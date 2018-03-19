@@ -20,11 +20,10 @@ public class Replacer {
 
 
     public static void main(String[] args) throws IOException {
-        IRead rd1 = new lesson_22.FileReader();
-        IWrite wr = new ConsWriter();
+        IRead rd1 = new Readerfile();
+        IWrite wr = new Writefile();
         Replacer rp = new Replacer(rd1,wr);
         rp.findAndReplace();
-
     }
 
 }
