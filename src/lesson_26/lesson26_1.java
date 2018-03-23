@@ -5,16 +5,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class lesson26_1 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         //Scanner sc = new Scanner(System.in);
         //sc.nextLine();
         String filePath = "C:/Users/1/IdeaProjects/Yura/src/lesson_26/Users.txt";
         String tempLine;
         ArrayList<String> words = new ArrayList<>();
-        try {
-            FileReader fileReader = new FileReader(filePath);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
 
+        try {
+             fileReader = new FileReader(filePath);
+             bufferedReader = new BufferedReader(fileReader);
             while ((tempLine = bufferedReader.readLine()) != null) {
                 String[] tempWords = tempLine.split(",");
 
@@ -26,14 +28,19 @@ public class lesson26_1 {
             for (String word : words) {
                 System.out.println(word);
             }
-            bufferedReader.close();
-            fileReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("File " + filePath + " not found");
             e.printStackTrace();
         } catch (IOException e) {
             System.out.println("Error while reading data from file");
             e.printStackTrace();
+        }finally {
+            try {
+                bufferedReader.close();
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
