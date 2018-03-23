@@ -12,21 +12,28 @@ public class Readerfile implements IRead {
         String filePath = "D:/yura.txt";
         String objedsrticka = null;
         BufferedReader bufferedReader = null;
+        FileReader fileReader = null;
         ArrayList<String> stricka = new ArrayList<String>();
         try {
-            FileReader fileReader = new FileReader(filePath);
+            fileReader = new FileReader(filePath);
             bufferedReader = new BufferedReader(fileReader);
             while ((objedsrticka = bufferedReader.readLine()) != null) {
              stricka.add(objedsrticka);
             }
-            bufferedReader.close();
-            fileReader.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Не вдалося знайти файл або відкрити потік");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Помилка якщо не вдалося зчитати із файлу");
+        }finally {
+            try {
+                bufferedReader.close();
+                fileReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         //String ob2 = bufferedReader.lines().toString();
         //System.out.println(ob2);
