@@ -1,11 +1,13 @@
 package HomeWorkPattersInformationExpert;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ProductDesc {
+public class ProductDesc implements Serializable {
 
+    private static final long serialVersionUID = 54L;
     private String description;
     private int price;
     private int ItemId;
@@ -27,6 +29,13 @@ public class ProductDesc {
         this.ItemId = 0;
         this.dateOfmanufacture = LocalDate.of(2018, 02, 29);
         this.dataOfEndDate = LocalDate.of(2018, 03, 13);
+    }
+
+
+    public ProductDesc(int itemId, String description, int price) {
+        this.ItemId = itemId;
+        this.description = description;
+        this.price = price;
     }
 
     public static LocalDate DataProduct() {
@@ -141,15 +150,16 @@ public class ProductDesc {
         return Objects.hash(description, price, ItemId);
     }
 
-    /*@Override
+    @Override
     public String toString() {
         return "ProductDesc{" +
                 "description='" + description + '\'' +
                 ", price=" + price +
                 ", ItemId=" + ItemId +
+                ", dateOfmanufacture=" + dateOfmanufacture +
+                ", dataOfEndDate=" + dataOfEndDate +
                 '}';
     }
-    */
 
     public void showProductDesc() {
         System.out.println(" ");

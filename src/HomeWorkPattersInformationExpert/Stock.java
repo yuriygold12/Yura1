@@ -2,11 +2,12 @@ package HomeWorkPattersInformationExpert;
 
 import HomeWork3.Product;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Stock {
+public class Stock implements Serializable{
     private static ArrayList<ProductDesc> avaibeleproducts = new ArrayList<>();//Доступні для продажу.
     private static ArrayList<ProductDesc> incamproducts = new ArrayList<>();//Першим чином додаю у прихід.
     private static ArrayList<ProductDesc> spusaniProductu = new ArrayList<>();//Списані продукти.
@@ -18,6 +19,125 @@ public class Stock {
         } else {
             System.out.println("Неможливо додати пустий обект");
         }
+    }
+
+    public static void savaDataAvaibelproducts(String path) throws IOException {
+        FileOutputStream file = null;
+        ObjectOutputStream objectStream = null;
+        try {
+            file = new FileOutputStream(path);
+            objectStream = new ObjectOutputStream(file);
+            objectStream.writeObject(avaibeleproducts);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            objectStream.close();
+            file.close();
+        }
+    }
+
+    public static void savaDataIncamproducts(String path) {
+        FileOutputStream file;
+        try {
+            file = new FileOutputStream(path);
+            ObjectOutputStream objectStream = new ObjectOutputStream(file);
+            objectStream.writeObject(incamproducts);
+            objectStream.close();
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void savaDataSpusaniProductu(String path) {
+        FileOutputStream file;
+        ObjectOutputStream objectStream;
+        try {
+            file = new FileOutputStream(path);
+            objectStream = new ObjectOutputStream(file);
+            objectStream.writeObject(spusaniProductu);
+            objectStream.close();
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static Object loadDataAvaibeleproducts(String path) {
+        Object tmpObject = null;
+        FileInputStream file;
+        try {
+            file = new FileInputStream(path);
+            ObjectInputStream objectStream = new ObjectInputStream(file);
+            tmpObject = objectStream.readObject();
+            objectStream.close();
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return tmpObject;
+    }
+
+
+    public static Object loadDataIncamproducts(String path) {
+        Object tmpObject = null;
+        FileInputStream file;
+        ObjectInputStream objectStream;
+        try {
+            file = new FileInputStream(path);
+            objectStream = new ObjectInputStream(file);
+            tmpObject = objectStream.readObject();
+            objectStream.close();
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("Серіалізація");
+        }
+        return tmpObject;
+    }
+
+
+    public static Object loadDataSpusani(String path) {
+        Object tmpObject = null;
+        FileInputStream file = null;
+        ObjectInputStream objectStream = null;
+        try {
+            file = new FileInputStream(path);
+            objectStream = new ObjectInputStream(file);
+            tmpObject = objectStream.readObject();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                objectStream.close();
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return tmpObject;
     }
 
 

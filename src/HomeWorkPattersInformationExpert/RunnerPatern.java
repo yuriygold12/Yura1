@@ -4,12 +4,13 @@ package HomeWorkPattersInformationExpert;
 
 //import javax.xml.soap.SAAJMetaFactory;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class RunnerPatern {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /*
         ProductDesc pr1 = new ProductDesc();
         ProductDesc product = new ProductDesc(1, "xlib", 1);
@@ -107,8 +108,8 @@ public class RunnerPatern {
         //Cтворення продукту у Складі
         Stock.creatProduct();
         Stock.creatProduct();
-        Stock.creatProduct();
-        Stock.creatProduct();
+        //Stock.creatProduct();
+        //Stock.creatProduct();
 
         //Перевірка продукту на складі і розприділення по кімнатах ти пу на складах.
         Stock.ValidityProduct();
@@ -116,21 +117,52 @@ public class RunnerPatern {
         Stock.showStock();
 
         //Пошук по ід товару і зміна ціни перед продажем тіпа.
-        Stock.RevalueGoods();
-        Stock.showStock();
+        //Stock.RevalueGoods();
+        //Stock.showStock();
 
-        System.out.println(" ");
-        System.out.println("Скалад");
-        System.out.println(" ");
+        //System.out.println(" ");
+        //System.out.println("Скалад");
+        //System.out.println(" ");
 
         //Створення попупки і додавання до касово апарату.
-        CashRegister.CreatNewSale();
+        //CashRegister.CreatNewSale();
 
-        System.out.println(" ");
+        //System.out.println(" ");
         //Друк чеків у мому випадку один чек.
-        CashRegister.showCashRegisterCheking();
-        System.out.println(" ");
+        //CashRegister.showCashRegisterCheking();
+        //System.out.println(" ");
         //Stock.showStock();
-        System.out.println(" ");
+        //System.out.println(" ");
+        Stock.savaDataAvaibelproducts("src/HomeWorkPattersInformationExpert/ProductsAvailblelnStock.txt");
+        Stock.savaDataSpusaniProductu("src/HomeWorkPattersInformationExpert/ProductsSpusaniStock.txt");
+        //Stock.savaDataIncamproducts("src/HomeWorkPattersInformationExpert/ProductsIncamproductsStock.txt");
+        ArrayList<ProductDesc> productDescs = new ArrayList<>();
+        productDescs = (ArrayList<ProductDesc>) Stock.loadDataAvaibeleproducts
+                ("src/HomeWorkPattersInformationExpert/ProductsAvailblelnStock.txt");
+
+        System.out.println("Після виводу із файлу");
+        for(ProductDesc product : productDescs)
+        {
+            System.out.println(product.toString());
+        }
+
+
+        ArrayList<ProductDesc> productDescs1 = new ArrayList<>();
+        productDescs1 = (ArrayList<ProductDesc>) Stock.loadDataSpusani("src/HomeWorkPattersInformationExpert/ProductsSpusaniStock.txt");
+
+
+        for(ProductDesc product : productDescs1)
+        {
+            System.out.println(product.toString());
+        }
+
+        ArrayList<ProductDesc> productDescs2 = new ArrayList<>();
+        productDescs2 = (ArrayList<ProductDesc>) Stock.loadDataIncamproducts("src/HomeWorkPattersInformationExpert/ProductsIncamproductsStock.txt");
+
+
+        for(ProductDesc product : productDescs2)
+        {
+            System.out.println(product.toString());
+        }
     }
 }
