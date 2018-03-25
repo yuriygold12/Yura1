@@ -146,11 +146,11 @@ public class RunnerPatern {
             System.out.println(product.toString());
         }
 
-
+        System.out.println("Після виводу із файлу");
         ArrayList<ProductDesc> productDescs1 = new ArrayList<>();
         productDescs1 = (ArrayList<ProductDesc>) Stock.loadDataSpusani("src/HomeWorkPattersInformationExpert/ProductsSpusaniStock.txt");
 
-
+        System.out.println("Після виводу із файлу");
         for(ProductDesc product : productDescs1)
         {
             System.out.println(product.toString());
