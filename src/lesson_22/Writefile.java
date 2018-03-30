@@ -16,11 +16,11 @@ public class Writefile implements IWrite {
             bufferedWriter.write(line, 1, line.length() - 2);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Не можливо оновити дані у файлі через те що  незнайдено файл");
+            System.out.println("Не можливо оновити дані у файлі через те що незнайдено файл");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Не вийде запустити буфер");
-        }finally {
+        } finally {
             try {
                 bufferedWriter.close();
                 fileWriter.close();

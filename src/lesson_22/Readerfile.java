@@ -18,7 +18,7 @@ public class Readerfile implements IRead {
             fileReader = new FileReader(filePath);
             bufferedReader = new BufferedReader(fileReader);
             while ((objedsrticka = bufferedReader.readLine()) != null) {
-             stricka.add(objedsrticka);
+                stricka.add(objedsrticka);
             }
 
         } catch (FileNotFoundException e) {
@@ -27,7 +27,7 @@ public class Readerfile implements IRead {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Помилка якщо не вдалося зчитати із файлу");
-        }finally {
+        } finally {
             try {
                 bufferedReader.close();
                 fileReader.close();
