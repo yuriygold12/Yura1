@@ -1,8 +1,7 @@
-package HomeWorkPatternGofFactory;
+package lesson_28_1;
 
 public class ConcreateCreateB extends Creater {
-    Product createrProduct(){
+    public Product createrProduct() {
         return new ProductB();
     }
 }
-
