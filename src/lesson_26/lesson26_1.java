@@ -8,18 +8,16 @@ public class lesson26_1 {
     public static void main(String[] args){
         //Scanner sc = new Scanner(System.in);
         //sc.nextLine();
-        String filePath = "C:/Users/1/IdeaProjects/Yura/src/lesson_26/Users.txt";
+        String filePath = "D:/yura.txt";
         String tempLine;
         ArrayList<String> words = new ArrayList<>();
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
-
         try {
              fileReader = new FileReader(filePath);
              bufferedReader = new BufferedReader(fileReader);
             while ((tempLine = bufferedReader.readLine()) != null) {
-                String[] tempWords = tempLine.split(",");
-
+                String[] tempWords = tempLine.split(" ");
                 for (int i = 0; i < tempWords.length; i++) {
                     words.add(tempWords[i]);
                 }
