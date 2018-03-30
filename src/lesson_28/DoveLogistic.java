@@ -1,4 +1,4 @@
-package lesson28;
+package lesson_28;
 
 public class DoveLogistic extends DeliveryLogstic {
     public Transport useTransport() {

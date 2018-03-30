@@ -1,4 +1,4 @@
-package lesson28;
+package lesson_28;
 
 public abstract class DeliveryLogstic {
     public abstract Transport useTransport();

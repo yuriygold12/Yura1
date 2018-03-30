@@ -1,4 +1,4 @@
-package lesson28;
+package lesson_28;
 
 public class Drone implements Transport {
     public void deliverMail() {
