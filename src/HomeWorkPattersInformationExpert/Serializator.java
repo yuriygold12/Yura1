@@ -18,7 +18,6 @@ public class Serializator {
         }
     }
 
-
     public static Object loadData(String path) {
         Object tmpObject = null;
         try {
