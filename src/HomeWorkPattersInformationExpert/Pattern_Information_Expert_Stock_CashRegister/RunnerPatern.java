@@ -1,11 +1,10 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister;
 
 //import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 
 //import javax.xml.soap.SAAJMetaFactory;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class RunnerPatern {

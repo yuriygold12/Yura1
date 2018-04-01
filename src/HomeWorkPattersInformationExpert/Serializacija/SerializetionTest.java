@@ -1,4 +1,6 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Serializacija;
+
+import HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister.ProductDesc;
 
 import java.util.ArrayList;
 

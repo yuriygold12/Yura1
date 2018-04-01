@@ -1,7 +1,5 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister;
 //import javax.xml.bind.SchemaOutputResolver;
-
-import HomeWork3.Product;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

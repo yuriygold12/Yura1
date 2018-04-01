@@ -1,4 +1,4 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister;
 
 import java.io.Serializable;
 import java.time.LocalDate;

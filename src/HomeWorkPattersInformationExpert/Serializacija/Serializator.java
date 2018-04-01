@@ -1,4 +1,4 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Serializacija;
 
 import java.io.*;
 

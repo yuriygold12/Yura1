@@ -1,7 +1,6 @@
-package HomeWorkPattersInformationExpert;
+package HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CashRegister {
 
