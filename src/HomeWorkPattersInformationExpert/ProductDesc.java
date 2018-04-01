@@ -23,6 +23,7 @@ public class ProductDesc implements Serializable {
         this.dataOfEndDate = dataOfEndDate;
     }
 
+
     public ProductDesc() {
         this.description = null;
         this.price = 0;
@@ -37,6 +38,7 @@ public class ProductDesc implements Serializable {
         this.description = description;
         this.price = price;
     }
+
 
     public static LocalDate DataProduct() {
         Scanner sc = new Scanner(System.in);
@@ -53,6 +55,7 @@ public class ProductDesc implements Serializable {
         return datamanufecture1;
     }
 
+
     //Назар дивись у цьому методі я не міг зробити порівняня з локал дейтемми.
     public static boolean oravaliditem(ProductDesc productDesc) {
         LocalDate localDate = LocalDate.now();
@@ -61,6 +64,32 @@ public class ProductDesc implements Serializable {
         }
         return false;
     }
+
+
+    public boolean equalsName(String name) {
+        if (description.equals(name)) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean equalsId(int id) {
+        if (ItemId == id) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public static boolean verifayproduct(ProductDesc productDesc) {
+        if (productDesc.description != null && productDesc.ItemId != 0 && productDesc.price != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public LocalDate getDateOfmanufacture() {
         return dateOfmanufacture;
@@ -94,30 +123,6 @@ public class ProductDesc implements Serializable {
         this.price = price;
     }
 
-    public boolean equalsName(String name) {
-        if (description.equals(name)) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean equalsId(int id) {
-        if (ItemId == id) {
-            return true;
-        }
-        return false;
-    }
-
-
-    public static boolean verifayproduct(ProductDesc productDesc) {
-        if (productDesc.description != null && productDesc.ItemId != 0 && productDesc.price != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
     //Цей метод закоментований залишив у разі потреби.
     /*public ProductDesc creatNewProductDesc()
     {
@@ -135,7 +140,6 @@ public class ProductDesc implements Serializable {
     }
     */
 
-
     @Override
     public boolean equals(Object o) {
         //if (this == o) return true;
@@ -146,7 +150,6 @@ public class ProductDesc implements Serializable {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(description, price, ItemId);
     }
 

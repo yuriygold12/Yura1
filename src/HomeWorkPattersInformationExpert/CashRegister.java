@@ -31,7 +31,6 @@ public class CashRegister {
     }
 
 
-
     public static Sale searchCeck(Sale sale) {
         Sale sale2 = null;
         if (CashRegister.VerifitiSale(sale) && (!sales.isEmpty())) {
@@ -51,7 +50,6 @@ public class CashRegister {
         }
         return sale2;
     }
-
 
 
     public static void showCheck(Sale sale) {

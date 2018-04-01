@@ -35,6 +35,14 @@ public class SalesLineItem {
     }
 
 
+    public void showSalenItem() {
+        System.out.println("SalesLineItem:");
+        item.showProductDesc();
+        System.out.println("quantita: " + quantita);
+        System.out.println(" ");
+    }
+
+
     public ProductDesc getItem() {
         return item;
     }
@@ -67,22 +75,11 @@ public class SalesLineItem {
         return Objects.hash(item, quantita);
     }
 
-
-    public void showSalenItem() {
-        System.out.println("SalesLineItem:");
-        item.showProductDesc();
-        System.out.println("quantita: " + quantita);
-        System.out.println(" ");
-    }
-
-
-    /*@Override
+    @Override
     public String toString() {
-
         return "SalesLineItem{" +
                 "item=" + item +
                 ", quantita=" + quantita +
                 '}';
     }
-    */
 }

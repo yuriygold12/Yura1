@@ -1,5 +1,6 @@
 package HomeWorkPattersInformationExpert;
 //import javax.xml.bind.SchemaOutputResolver;
+
 import HomeWork3.Product;
 
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class Sale {
         this.time = LocalDate.now();
         this.salesitem = new ArrayList<>();
     }
+
 
     public void addSaleLineItem() {
         data = LocalDate.now();
@@ -65,6 +67,19 @@ public class Sale {
         return SumaTotol;
     }
 
+
+    public void showSale() {
+        System.out.println(" ");
+        System.out.println("Sale");
+        System.out.println("data: " + data);
+        System.out.println("time: " + time);
+        for (SalesLineItem i : salesitem) {
+            i.showSalenItem();
+        }
+        System.out.println(" ");
+    }
+
+
     public void setData(LocalDate data) {
         this.data = data;
     }
@@ -88,33 +103,20 @@ public class Sale {
                 Objects.equals(salesitem, sale.salesitem);
     }
 
+
     @Override
     public int hashCode() {
-
         return Objects.hash(data, time, salesitem);
     }
 
-    public void showSale() {
-        System.out.println(" ");
-        System.out.println("Sale");
-        System.out.println("data: " + data);
-        System.out.println("time: " + time);
-        for (SalesLineItem i : salesitem) {
-            i.showSalenItem();
-        }
-        System.out.println(" ");
-    }
 
-
-    /*@Override
+    @Override
     public String toString() {
-
         return "Sale{" +
                 "data=" + data +
                 ", time=" + time +
-                ", salesitem=" + salesitem+
+                ", salesitem=" + salesitem +
                 '}';
     }
-    */
 }
 

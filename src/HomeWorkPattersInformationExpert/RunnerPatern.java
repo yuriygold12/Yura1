@@ -133,6 +133,10 @@ public class RunnerPatern {
         //System.out.println(" ");
         //Stock.showStock();
         //System.out.println(" ");
+
+
+
+
         Stock.savaDataAvaibelproducts("src/HomeWorkPattersInformationExpert/ProductsAvailblelnStock.txt");
         Stock.savaDataSpusaniProductu("src/HomeWorkPattersInformationExpert/ProductsSpusaniStock.txt");
         //Stock.savaDataIncamproducts("src/HomeWorkPattersInformationExpert/ProductsIncamproductsStock.txt");
@@ -141,8 +145,7 @@ public class RunnerPatern {
                 ("src/HomeWorkPattersInformationExpert/ProductsAvailblelnStock.txt");
 
         System.out.println("Після виводу із файлу");
-        for(ProductDesc product : productDescs)
-        {
+        for (ProductDesc product : productDescs) {
             System.out.println(product.toString());
         }
 
@@ -151,8 +154,7 @@ public class RunnerPatern {
         productDescs1 = (ArrayList<ProductDesc>) Stock.loadDataSpusani("src/HomeWorkPattersInformationExpert/ProductsSpusaniStock.txt");
 
         System.out.println("Після виводу із файлу");
-        for(ProductDesc product : productDescs1)
-        {
+        for (ProductDesc product : productDescs1) {
             System.out.println(product.toString());
         }
 
@@ -160,8 +162,7 @@ public class RunnerPatern {
         productDescs2 = (ArrayList<ProductDesc>) Stock.loadDataIncamproducts("src/HomeWorkPattersInformationExpert/ProductsIncamproductsStock.txt");
 
 
-        for(ProductDesc product : productDescs2)
-        {
+        for (ProductDesc product : productDescs2) {
             System.out.println(product.toString());
         }
     }

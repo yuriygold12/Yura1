@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Stock implements Serializable{
+public class Stock implements Serializable {
     private static ArrayList<ProductDesc> avaibeleproducts = new ArrayList<>();//Доступні для продажу.
     private static ArrayList<ProductDesc> incamproducts = new ArrayList<>();//Першим чином додаю у прихід.
     private static ArrayList<ProductDesc> spusaniProductu = new ArrayList<>();//Списані продукти.
@@ -32,7 +32,7 @@ public class Stock implements Serializable{
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             objectStream.close();
             file.close();
         }
@@ -107,7 +107,7 @@ public class Stock implements Serializable{
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             System.out.println("Серіалізація");
         }
         return tmpObject;
@@ -129,7 +129,7 @@ public class Stock implements Serializable{
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 objectStream.close();
                 file.close();
@@ -238,6 +238,7 @@ public class Stock implements Serializable{
             }
         }
     }
+
 
     public static ArrayList<ProductDesc> getProduct(ProductDesc product, int q) {
         ArrayList<ProductDesc> products1 = new ArrayList<>();
