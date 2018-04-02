@@ -1,4 +1,4 @@
-package HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister;
+package HomeWorkPatterns_Information_Expert.Stock_CashRegister_Sale_ProductDesc;
 
 //import org.omg.PortableServer.POAPackage.ServantAlreadyActive;
 

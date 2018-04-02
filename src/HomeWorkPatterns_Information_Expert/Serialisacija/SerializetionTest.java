@@ -1,6 +1,6 @@
-package HomeWorkPattersInformationExpert.Serializacija;
+package HomeWorkPatterns_Information_Expert.Serialisacija;
 
-import HomeWorkPattersInformationExpert.Pattern_Information_Expert_Stock_CashRegister.ProductDesc;
+import HomeWorkPatterns_Information_Expert.Stock_CashRegister_Sale_ProductDesc.ProductDesc;
 
 import java.util.ArrayList;
 

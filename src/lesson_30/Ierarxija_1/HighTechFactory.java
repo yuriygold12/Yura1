@@ -1,4 +1,4 @@
-package lesson_30.Ierarxija1;
+package lesson_30.Ierarxija_1;
 
 import lesson_30.*;
 
@@ -14,7 +14,7 @@ public class HighTechFactory implements FurnitureFactory {
         return new HighTechTable();
     }
 
-    @Override
+    @Override//
     public Sofa createSofa() {
         return new HighTechSofa();
     }

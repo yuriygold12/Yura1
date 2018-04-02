@@ -1,22 +1,20 @@
-package lesson_30.Ierarxija1;
+package lesson_30.Ierarxija_1;
 
-import lesson_30.Chair;
-import lesson_30.Sofa;
-import lesson_30.Table;
+import lesson_30.*;
 
 public class PopArtFactory implements FurnitureFactory {
     @Override
     public Chair createChair() {
-        return null;
+        return new PopArtChair();
     }
 
     @Override
     public Table createTable() {
-        return null;
+        return new PopArtTable();
     }
 
     @Override
     public Sofa createSofa() {
-        return null;
+        return new PopArtSofa();
     }
 }

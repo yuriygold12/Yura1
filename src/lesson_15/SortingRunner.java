@@ -1,6 +1,5 @@
 package lesson_15;
 
-import MyPack.Person;
 
 import java.util.Random;
 
