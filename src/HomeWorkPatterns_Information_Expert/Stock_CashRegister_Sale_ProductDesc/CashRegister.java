@@ -10,13 +10,13 @@ public class CashRegister {
         if (CashRegister.VerifitiSale(sale)) {
             sales.add(sale);
         } else {
-            System.out.println("not the check");
+            System.out.println("Немає зформованоі покупки тому не додаем чек у касовий апарат");
         }
     }
 
 
-    public static boolean VerifitiSale(Sale sale1) {
-        if (sale1.VerifytyItems()) {
+    public static boolean VerifitiSale(Sale sale) {
+        if (sale.VerifytyItems()) {
             return true;
         }
         return false;
@@ -24,13 +24,13 @@ public class CashRegister {
 
 
     public static void CreatNewSale() {
-        Sale sale1 = new Sale();
-        sale1.addSaleLineItem();
-        sales.add(sale1);
+        Sale sale = new Sale();
+        sale.addSaleLineItem();
+        sales.add(sale);
     }
 
 
-    public static Sale searchCeck(Sale sale) {
+    public static Sale searchCheck(Sale sale) {
         Sale sale2 = null;
         if (CashRegister.VerifitiSale(sale) && (!sales.isEmpty())) {
             int count = 0;
@@ -45,32 +45,35 @@ public class CashRegister {
                 System.out.println("Не знайдено чеку");
             }
         } else {
-            System.out.println("Немае чеків");
+            System.out.println("Немае чеків у касовому апараті або переданий чек для пошуку не праіильний");
         }
         return sale2;
     }
 
 
     public static void showCheck(Sale sale) {
-        if (CashRegister.VerifitiSale(sale)) {
+        if (CashRegister.VerifitiSale(sale) && (!sales.isEmpty())) {
             for (Sale ceck : sales) {
                 if (ceck.equals(sale)) {
                     ceck.showSale();
                     break;
                 }
             }
+        } else {
+            System.out.println("Не знайшлося чеку який ви хотіли вивести або переданий вами чек не справний");
         }
     }
 
 
     public static void showCashRegisterCheking() {
         if (!sales.isEmpty()) {
-            System.out.println("Чек: ");
+            System.out.println("Касовий апарат: ");
             for (Sale i : sales) {
+                System.out.println("Чек номер: "+ i);
                 i.showSale();
             }
         } else {
-            System.out.println("Немає покупки(((");
+            System.out.println("Немає покупки і відносно немає чеків");
         }
     }
 }

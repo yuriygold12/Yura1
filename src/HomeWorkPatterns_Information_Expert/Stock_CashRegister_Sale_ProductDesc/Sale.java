@@ -46,6 +46,7 @@ public class Sale {
         //salesitem.addAll(salesLineItems);
     }
 
+
     public boolean VerifytyItems() {
 
         for (SalesLineItem i : salesitem) {

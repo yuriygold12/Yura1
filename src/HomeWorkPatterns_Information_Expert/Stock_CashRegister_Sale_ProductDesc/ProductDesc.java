@@ -42,13 +42,13 @@ public class ProductDesc implements Serializable {
 
     public static LocalDate DataProduct() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Введіть рік виготовлення продукту: ");
+        System.out.print("Введіть рік: ");
         int year = sc.nextInt();
         Scanner sc1 = new Scanner(System.in);
-        System.out.print("Введіть місяць виготовлення продукту: ");
+        System.out.print("Введіть місяць: ");
         int mouth = sc1.nextInt();
         Scanner sc2 = new Scanner(System.in);
-        System.out.print("Введіть день виготовлення продукту: ");
+        System.out.print("Введіть день: ");
         int day = sc2.nextInt();
         LocalDate datamanufecture1;
         datamanufecture1 = LocalDate.of(year, mouth, day);
@@ -123,6 +123,7 @@ public class ProductDesc implements Serializable {
         this.price = price;
     }
 
+
     //Цей метод закоментований залишив у разі потреби.
     /*public ProductDesc creatNewProductDesc()
     {
@@ -148,10 +149,12 @@ public class ProductDesc implements Serializable {
         return Objects.equals(description, that.description);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(description, price, ItemId);
     }
+
 
     @Override
     public String toString() {

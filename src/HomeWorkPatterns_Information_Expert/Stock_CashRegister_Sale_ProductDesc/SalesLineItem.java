@@ -70,7 +70,6 @@ public class SalesLineItem {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(item, quantita);
     }
 
