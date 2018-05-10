@@ -25,28 +25,28 @@ public class WorkwithGenerick<T extends Number> {
                 }
                 numbersList.set(j, temp1);
             }
-        }
+        }//
     }
 
-    private int findElement(ArrayList<?> number) {
+    private int findElement(ArrayList<T> numberlist) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Введіть число яке ви шукаете: ");
         Double value = sc.nextDouble();
-            for (int i = 0; i < numbersList.size(); i++) {
-                if (number.get(i).equals(value)) {
-                    System.out.print("Ми знайшли елемент: " + number.get(i).toString());
-                    System.out.println(" ");
-                    return i;
-                }
+        for (int i = 0; i < numberlist.size(); i++) {
+            if (numberlist.get(i).equals(value)) {
+                System.out.print("Ми знайшли елемент: " + numberlist.get(i).toString());
+                System.out.println(" ");
+                return i;
             }
+        }
         return -1;
     }
 
     public void removeInArrayList() {
-        int value = findElement(numbersList);
-        if (value != -1) {
-            System.out.println("Видаляем елемент який знайшли:"+ numbersList.get(value).toString());
-            numbersList.remove(value);
+        int index = findElement(numbersList);
+        if (index != -1) {
+            System.out.println("Видаляем елемент який знайшли:"+ numbersList.get(index).toString());
+            numbersList.remove(index);
         }
         else{
             System.out.println("Елемент не знайшовся");
@@ -60,6 +60,7 @@ public class WorkwithGenerick<T extends Number> {
         System.out.println(" ");
         numbersList.add((T)value);
     }
+
 
     public void showinfo() {
         System.out.println(" ");
