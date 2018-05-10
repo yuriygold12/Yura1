@@ -12,13 +12,4 @@ public enum Color {
     {
         return name;
     }
-
-    @Override
-    public String toString() {
-        return "Color{" +
-                "name='" + name + '\'' +
-                '}';
-    }
-
-
 }

@@ -33,8 +33,8 @@ public class RunnerQueue {
         System.out.println("Чи черга пуста: "+queue.isempty());
         System.out.println("Повертаеєм першого у черзі: "+queue.peek());
         System.out.println("");
-        System.out.println("Видаляем елемент із черги: "+queue.remove());
-        System.out.println("Видаляем елемент із черги: "+queue.remove());
+        //System.out.println("Видаляем елемент із черги: "+queue.remove());
+
         System.out.println("");
         queue.showinfo();
         System.out.println("");
@@ -43,6 +43,6 @@ public class RunnerQueue {
         System.out.println("Чи черга пуста: "+queue.isempty());
         System.out.println("Повертаеєм першого у черзі: "+queue.peek());
         System.out.println(queue.toString());
-        System.out.println("Чи дві черги рівні: "+queue.equals(queue));
+        System.out.println("Чи дві черги рівні: "+queue.equals(quiqe));
     }
 }

@@ -1,10 +1,10 @@
-//package HomeWork10;
-//import HomeWork9.*;
+package HomeWork10;
+import HomeWork9.*;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/*public class RunnerObject {
+public class RunnerObject {
     public static void main(String[]args) {
         //Client cli = new Client("Olesja","olesivna",12,"Antonucja") ;
        // Driver td1 = new Driver("Orest", "Malonovic", 5000, 15, LocalDate.now(), "1",
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
        // System.out.println(cli.equals(cl));
 
-        Object[] per = {cli,td1};
+       // Object[] per = {cli,td1};
        // for (int i = 0; i < per.length ; i++) {
         //    System.out.println(per[i].toString());
         //}
@@ -252,9 +252,6 @@ import java.util.ArrayList;
 
         ob1.ensureCapacity(ob1.size()-1);
 
-
+        */
     }
 }
-
-
-*/

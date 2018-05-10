@@ -45,12 +45,4 @@ public class Company {
         System.out.println("Імя компанії: "+NameCompany);
         System.out.println("Дата : "+datadateoffoundation);
     }
-
-    @Override
-    public String toString() {
-        return "Company{" +
-                "NameCompany='" + NameCompany + '\'' +
-                ", datadateoffoundation=" + datadateoffoundation +
-                '}';
-    }
 }

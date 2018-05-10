@@ -19,14 +19,14 @@ public class LinkList {
         Node newNode = new Node(id,value);
         newNode.next = firts;
         firts = newNode;
-        //if(!stackLinkedList.isfull())
-        //{
-            //stackLinkedList.Push(firts);
-        //}
-       // else
-        //{
-         //   System.out.println("у стек елемент не додасся бо переповнений");
-        //}
+        if(!stackLinkedList.isfull())
+        {
+            stackLinkedList.Push(firts);
+        }
+        else
+        {
+            System.out.println("у стек елемент не додасся бо переповнений");
+        }
     }
 
     //Видалити з початку.
@@ -64,6 +64,7 @@ public class LinkList {
         }
     }
     */
+
 
     public StackLinkedList getStackLinkedList() {
         return stackLinkedList;
@@ -126,30 +127,27 @@ public class LinkList {
      {
          Node tmpValue = new Node(12,13);
          Node CurrentNode = firts;
-         Node prevNode = firts;
-         if(CurrentNode !=null)
-         {
-             while (CurrentNode.index != id && CurrentNode.next!=null) {
-                     CurrentNode = CurrentNode.next;
-                     //prevNode.next = CurrentNode;
+         Node prevNode = null;
+         if(CurrentNode!=null) {
+             while (CurrentNode.index != id) {
+                 CurrentNode = CurrentNode.next;
+                 if(CurrentNode.next == null) { break; }
              }
          }
-         if(CurrentNode == null)
+         else
          {
              System.out.println("Списук на даний момент пустий додаем елемент");
-             tmpValue.next = firts;
-             firts = tmpValue;
-             CurrentNode = firts;
-
+                 tmpValue.next = firts;
+                 firts = tmpValue;
+                 CurrentNode = firts;
          }
-             if(CurrentNode.index == id && CurrentNode!=tmpValue) {
+             if(CurrentNode.index == id && CurrentNode !=null) {
                  prevNode = CurrentNode;
                  tmpValue.next = CurrentNode.next;
                  prevNode.next = tmpValue;
              }
              else
              {
-                 System.out.println(" ");
                  System.out.println("Не знайшлося елементу з даним елементом тому не додаем після якогось елемета");
              }
      }
@@ -161,31 +159,33 @@ public class LinkList {
         Node CurrentNode = firts;
         Node prevNode = firts;
         if(CurrentNode!=null) {
-            while (CurrentNode.index != id && CurrentNode.next !=null) {
+            while (CurrentNode.index != id) {
                 prevNode = CurrentNode;
                 CurrentNode = CurrentNode.next;
+                if (CurrentNode == null) { break; }
             }
         }
-        if(CurrentNode == null)
+        else
         {
             System.out.println("Список Пустий додаем елемент)))");
             tmpValue.next = firts;
             firts = tmpValue;
             CurrentNode = firts;
         }
-            if (CurrentNode != firts && CurrentNode.index == id && CurrentNode!=tmpValue) {
+            if (CurrentNode != firts && CurrentNode.index == id) {
                 prevNode.next = tmpValue;
                 tmpValue.next = CurrentNode;
             }
-            if (CurrentNode == firts && CurrentNode.index == id && CurrentNode!=tmpValue) {
+            if (CurrentNode == firts && CurrentNode.index == id) {
                 tmpValue.next = CurrentNode;
                 firts = tmpValue;
             }
-            if(CurrentNode.index != id){
+            if(CurrentNode != firts && CurrentNode.index != id && CurrentNode == firts && CurrentNode.index != id){
                 System.out.println();
                 System.out.println("Не знайшлося елементу з айді що додати перед цим елементом");
             }
     }
+
 
     //Вивід Списку.
     public void displayList(){
