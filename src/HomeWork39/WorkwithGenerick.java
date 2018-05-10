@@ -1,7 +1,5 @@
 package HomeWork39;
 
-import HomeWork9.Person;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,10 +8,6 @@ public class WorkwithGenerick<T extends Number> {
 
     public WorkwithGenerick() {
         this.numbersList = new ArrayList<>();
-    }
-
-    public WorkwithGenerick(ArrayList<T> numbersList) {
-        this.numbersList = numbersList;
     }
 
     public void insertIntoSort() {
@@ -34,81 +28,44 @@ public class WorkwithGenerick<T extends Number> {
         }
     }
 
-
-    public void findElement() {
+    private int findElement(ArrayList<?> number) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Введіть число яке ви шукаете: ");
-        double value = sc.nextDouble();
-        int cntArray = numbersList.size();
-        if (cntArray > 0) {
-            for (int i = 0; i < cntArray - 1; i++) {
-                if (numbersList.get(i).doubleValue() == value) {
-                    T values = numbersList.get(i);
-                    System.out.print("Ми знайшли елемент: " + values.toString());
+        Double value = sc.nextDouble();
+            for (int i = 0; i < numbersList.size(); i++) {
+                if (number.get(i).equals(value)) {
+                    System.out.print("Ми знайшли елемент: " + number.get(i).toString());
+                    System.out.println(" ");
+                    return i;
                 }
             }
-        } else {
-            System.out.println("ArrayList pustuy");
-        }
+        return -1;
     }
-
 
     public void removeInArrayList() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Введіть число яке ви ажаете видалити: ");
-        double value = sc.nextDouble();
-        int count = numbersList.size();
-        for (int i = 0; i < count - 1; i++) {
-            if (numbersList.get(i).doubleValue() == value) {
-                T values = numbersList.get(i);
-                System.out.print("Ми видаляєио елемент: " + values.toString());
-                numbersList.remove(values);
-
-            }
+        int value = findElement(numbersList);
+        if (value != -1) {
+            System.out.println("Видаляем елемент який знайшли:"+ numbersList.get(value).toString());
+            numbersList.remove(value);
+        }
+        else{
+            System.out.println("Елемент не знайшовся");
         }
     }
-
 
     public void addElement() {
         Scanner sc = new Scanner(System.in);
-        int count = numbersList.size();
-        System.out.println("Введіть число яке ви бажаете додати");
-        Person pr = new Person();
-
-        //TODO T<-->Integer
-        //numbersList.add((Integer)sc.nextInt());
-
+        System.out.print("Введіть число яке ви бажаете додати: ");
+        Double value = (Double)sc.nextDouble();
+        System.out.println(" ");
+        numbersList.add((T)value);
     }
 
-
     public void showinfo() {
+        System.out.println(" ");
         for (T i : numbersList) {
             System.out.println("number: " + i.toString());
         }
-        System.out.println();
-    }
-
-
-    public static void main(String[] args) {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        numbers.add(205);
-        numbers.add(20);
-        numbers.add(13);
-        numbers.add(100);
-        numbers.add(33);
-        numbers.add(44);
-        WorkwithGenerick<Integer> sorting = new WorkwithGenerick<>(numbers);
-        sorting.showinfo();
-        //System.out.println("Додаем елемент");
-        //sorting.addElement();
-        //sorting.showinfo();
-        System.out.println("Шукаем елемент: ");
-        sorting.findElement();
-        System.out.println("Видаляем елемент");
-        sorting.removeInArrayList();
-        sorting.showinfo();
-        System.out.println("Сортуем елементи");
-        sorting.insertIntoSort();
-        sorting.showinfo();
+        System.out.println(" ");
     }
 }
