@@ -41,7 +41,7 @@ public class WorkwithGenerick<T extends Number> {
         }
         return -1;
     }
-//
+////
     public void removeInArrayList() {
         int index = findElement(numbersList);
         if (index != -1) {
