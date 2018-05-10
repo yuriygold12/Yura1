@@ -23,14 +23,14 @@ public class ArrayListRunner {
 
         Driver td1 = new Driver("Orest", "Malonovic", 5000, 15, LocalDate.now(), "1",
 
-                new Car(1,"Opel","Vectra","Biluy"), 1);
+                new Car(1,"Opel","Vectra",Color.red), 1);
 
         Driver tdl2 = new Driver("Tolik","Baday",1200,14,LocalDate.now(),"2",
-                new Car(2,"Mersedes","Bens","yellow"),2);
+                new Car(2,"Mersedes","Bens", Color.red),2);
 
 
         Driver tdl3 = new Driver("Vitja","bayda",2400,14, LocalDate.now(),"3",
-                new Car(3,"Audi","T4","Blu"),3);
+                new Car(3,"Audi","T4",Color.red),3);
 
 
         Taxiorder or = new Taxiorder(1,cli,1,"trylovskoho","Antonuca",
@@ -125,7 +125,6 @@ public class ArrayListRunner {
         System.out.println();
 
         System.out.println("Кількість елементів у ArrayList == persons: "+size);
-
     }
 
 }

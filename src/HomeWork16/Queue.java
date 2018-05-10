@@ -8,6 +8,7 @@ public class Queue {
    private int front;
    private int size;
    private int rear;
+   private int iterator;
 
 
     public Queue(int size) {
@@ -15,15 +16,10 @@ public class Queue {
         this.queque = new int[size];
         this.front = 0;
         this.rear = -1;
+        this.iterator = 0;
     }
 
 
-    public Queue() {
-        this.queque = new int[2];
-        this.size = 1;
-        this.front = 0;
-        this.rear = -1;
-    }
 
 
     public void offer(int value)
@@ -33,7 +29,7 @@ public class Queue {
              queque[++rear] = value;
          }
          else{
-             int[] quiqe = new int[size + 1];
+             int[] quiqe = new int[queque.length+1];
              for (int i = 0; i < size; i++){
                  quiqe[i] = queque[i];
              }
@@ -41,20 +37,21 @@ public class Queue {
              this.size++;
              this.queque = quiqe;
          }
+         iterator++;
      }
 
 
 
      boolean iffilled()
      {
-        return rear >= size-1;
+        return iterator == size-1;
      }
 
 
 
     public boolean isempty()
     {
-        return rear == -1;
+        return iterator == 0;
     }
 
 
@@ -68,29 +65,20 @@ public class Queue {
         }
         else
         {
-            return queque[0];
+            return queque[front];
         }
     }
 
 
     public int remove()
     {
-        if(!isempty())
+        int tmpValue = queque[front++];
+        if(front == size - 1)
         {
-            rear--;
-            size--;
-            //for(int i = 1,j=0;i<size && j<size-1;i++,j++)
-            //{
-            //    queque[j] = queque[i];
-            //}
-            //return queque[front--];
-            return queque[front++];
+           front = 0;
         }
-        else
-        {
-            System.out.println("Черга пуста");
-            return 0;
-        }
+        iterator--;
+        return tmpValue;
     }
 
 

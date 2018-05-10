@@ -4,92 +4,82 @@ import java.util.Random;
 
 public class LinkedListinStack {
 
-   private LinkList linkList;
-   private Node first;
-   //private Node top;
-   private int top;
-   private int size;
+    private LinkList linkList;
+    private Node top;
+    private int size;
 
 
     public LinkedListinStack() {
         this.linkList = new LinkList();
-        this.first = null;
-        //this.top = null;
-        this.top = -1;
+        this.top = null;
         this.size = 6;
     }
 
-
-    public LinkedListinStack(LinkList linkList, Node first, int top, int size) {
+    public LinkedListinStack(LinkList linkList, Node top, int size) {
         this.linkList = linkList;
-        this.first = first;
         this.top = top;
         this.size = size;
     }
 
 
-    public boolean isempty()
-    {
-        return top == -1;
+    public boolean isempty() {
+        return top == null;
     }
 
-    public boolean isfull()
-    {
-        return top == size-1;
-    }
-
-
-    public void push(Node newNode) { ;
-        if (!isfull()) {
-            //newNode.next = first;
-            //first = newNode;
-            top++;
-            linkList.insertToBegin(newNode.index,newNode.value);
+    public boolean isfull() {
+        Node CurrentNode = top;
+        int count = 0;
+        while (CurrentNode != null) {
+            count++;
+            CurrentNode = CurrentNode.next;
         }
-        else
-        {
+        if (count == size) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void push(Node newNode) {
+
+        if (!isfull()) {
+            System.out.println("Додаем елемент");
+            newNode.next = top;
+            top = newNode;
+            linkList.insertToBegin(newNode.index, newNode.value);
+        } else {
             System.out.println("Стек Переповнений");
         }
     }
 
-
-    public Node peek()
-    {
-        if(!isempty())
-        {
-           return first.next;
-        }
-        else
-        {
+    public Node peek() {
+        if (!isempty()) {
+            return top;
+        } else {
             System.out.println("Стек пустий + Лінкед ліст пустий");
             return null;
         }
     }
 
-
-    public Node pop()
-    {
-        if(!isempty())
-        {
-            Node CurentNode = first;
-            //first = first.next;
+    public Node pop() {
+        if (!isempty()) {
+            Node CurentNode = top;
+            top = top.next;
             linkList.deleteFirst();
-            top--;
             return CurentNode;
-        }
-        else
-        {
+        } else {
             System.out.println("Неможливо видали вузол стек пустий");
             return null;
         }
     }
 
-    public void ShowLinkedListStack()
-    {
+    public void ShowLinkedListStack() {
+
         linkList.displayList();
-        System.out.println(" ");
-        System.out.println("Firs: "+first);
-        System.out.println("Максимальна кількість елементів у стеку: "+size);
-        System.out.println("Зараз у стеку: "+top);
+        if (linkList != null && top != null) {
+            System.out.println(" ");
+            System.out.println("Firs: " + top.value);
+            //System.out.println("Максимальна кількість елементів у стеку: "+size);
+        }
     }
 }
