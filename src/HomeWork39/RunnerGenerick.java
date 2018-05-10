@@ -14,8 +14,8 @@ public class RunnerGenerick {
         workwithGenerick.showinfo();
         workwithGenerick.removeInArrayList();
         workwithGenerick.showinfo();
-        //System.out.println("Сортуем елементи");
-        //sorting.insertIntoSort();
-        //sorting.showinfo();
+        System.out.println("Сортуем елементи");
+        workwithGenerick.insertIntoSort();
+        workwithGenerick.showinfo();
     }
 }
