@@ -32,13 +32,13 @@ public class WorkwithGenerick<T extends Number> {
         Scanner sc = new Scanner(System.in);
         System.out.print("Введіть число яке ви шукаете: ");
         Double value = sc.nextDouble();
-            for (int i = 0; i < numbersList.size(); i++) {
-                if (number.get(i).equals(value)) {
-                    System.out.print("Ми знайшли елемент: " + number.get(i).toString());
-                    System.out.println(" ");
-                    return i;
-                }
+        for (int i = 0; i < numbersList.size(); i++) {
+            if (number.get(i).equals(value)) {
+                System.out.print("Ми знайшли елемент: " + number.get(i).toString());
+                System.out.println(" ");
+                return i;
             }
+        }
         return -1;
     }
 
