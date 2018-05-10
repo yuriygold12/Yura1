@@ -4,22 +4,22 @@ public class Car {
     private  int numberofSteatsthecar;
     private  String Marka;
     private  String Model;
-    private  Color color1;
+    private  String Color;
 
 
     public Car(){
         this.numberofSteatsthecar = 123456;
         this.Marka = "bmv";
         this.Model = "x5";
-        this.color1 = Color.red;
+        this.Color = "bile";
     }
 
 
-    public Car(int numberofSteatsthecar, String marka, String model, Color color) {
+    public Car(int numberofSteatsthecar, String marka, String model, String color) {
         this.numberofSteatsthecar = numberofSteatsthecar;
         this.Marka = marka;
         this.Model = model;
-        this.color1 = color;
+        this.Color = color;
     }
 
 
@@ -47,12 +47,12 @@ public class Car {
         Model = model;
     }
 
-    public Color getColor() {
-        return color1;
+    public String getColor() {
+        return Color;
     }
 
-    public void setColor(Color color){
-        this.color1 = color;
+    public void setColor(String color) {
+        Color = color;
     }
 
     public void ShowCar()
@@ -60,7 +60,7 @@ public class Car {
         System.out.println("Number Car == "+numberofSteatsthecar);
         System.out.println("Marka == "+Marka);
         System.out.println("MOdel == "+Model);
-        System.out.println("Color == "+color1.toString());
+        System.out.println("Color == "+Color);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Car {
                 "numberofSteatsthecar=" + numberofSteatsthecar +
                ", Marka='" + Marka + '\'' +
                 ", Model='" + Model + '\'' +
-                ", Color='" + color1 + '\'' +
+                ", Color='" + Color + '\'' +
                 '}';
     }
 }
