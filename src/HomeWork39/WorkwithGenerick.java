@@ -25,7 +25,7 @@ public class WorkwithGenerick<T extends Number> {
                 }
                 numbersList.set(j, temp1);
             }
-        }
+        }//
     }
 
     private int findElement(ArrayList<?> number) {
