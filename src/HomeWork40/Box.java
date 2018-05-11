@@ -11,6 +11,17 @@ public class Box {
         this.depht = depht;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getDepht() {
+        return depht;
+    }
 
     @Override
     public String toString() {

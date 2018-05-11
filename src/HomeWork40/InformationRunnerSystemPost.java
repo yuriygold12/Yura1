@@ -12,7 +12,7 @@ public class InformationRunnerSystemPost {
         System.out.println();
         System.out.println("Вивід коробок зі складу");
         Stock<Box> boxStock = new Stock<Box>(boxing);
-        StockInformer.showinfoBoxOrOther(boxStock);
+        //StockInformer.showinfoBoxOrOther(boxStock);
         System.out.println();
 
         ArrayList<PostBox> postBoxes = new ArrayList<>();

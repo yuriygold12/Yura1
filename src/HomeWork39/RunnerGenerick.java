@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class RunnerGenerick {
     public static void main(String[] args) {
-        WorkwithGenerick workwithGenerick = new WorkwithGenerick();
+        WorkwithGenerick workwithGenerick = new IntegerNumbers();
         workwithGenerick.addElement();
         workwithGenerick.addElement();
         workwithGenerick.addElement();
