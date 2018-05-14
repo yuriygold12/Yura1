@@ -8,11 +8,8 @@ public class Parcel extends PostBox {
         this.client = client;
     }
 
-    @Override
-    public String toString() {
-        return "Parcel{" + super.toString() +
-                "client='" + client + '\'' +
-                '}';
+    public String getClient() {
+        return client;
     }
 }
 

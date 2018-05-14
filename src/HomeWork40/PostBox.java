@@ -10,11 +10,11 @@ public class PostBox extends Box {
         this.weight = weight;
     }
 
-    @Override
-    public String toString() {
-        return "PostBox{" + super.toString() +
-                "id=" + id +
-                ", weight=" + weight +
-                '}';
+    public int getId() {
+        return id;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }

@@ -12,7 +12,7 @@ public class InformationRunnerSystemPost {
         System.out.println();
         System.out.println("Вивід коробок зі складу");
         Stock<Box> boxStock = new Stock<Box>(boxing);
-        //StockInformer.showinfoBoxOrOther(boxStock);
+        StockInformer.showBoxInfo(boxStock);
         System.out.println();
 
         ArrayList<PostBox> postBoxes = new ArrayList<>();
@@ -24,7 +24,7 @@ public class InformationRunnerSystemPost {
         System.out.println("Вивід поштових коробок коробок зі складу");
         System.out.println();
         Stock<PostBox> postBoxStock = new Stock<>(postBoxes);
-        StockInformer.showInfoOthersPostboxOrOther(postBoxStock);
+        StockInformer.showInfoPostbox(postBoxStock);
 
 
         System.out.println();

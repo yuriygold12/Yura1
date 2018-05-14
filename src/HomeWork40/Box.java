@@ -22,13 +22,4 @@ public class Box {
     public int getDepht() {
         return depht;
     }
-
-    @Override
-    public String toString() {
-        return "Box{" +
-                "width=" + width +
-                ", height=" + height +
-                ", depht=" + depht +
-                '}';
-    }
 }
