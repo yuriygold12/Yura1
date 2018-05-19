@@ -208,6 +208,5 @@ public class WorkWithVector {
             System.out.print(listiterator1.next() +"   ");
         }
        */
-        System.out.println(" ");
     }
 }
