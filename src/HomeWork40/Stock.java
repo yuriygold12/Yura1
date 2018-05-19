@@ -10,7 +10,6 @@ public class Stock<T extends Box> {
         this.staff = parcels;
     }
 
-
     public ArrayList<T> getStaff() {
         return staff;
     }
