@@ -22,10 +22,9 @@ public class RunnerStuff {
         StuffList<Integer> integerStuffList = new StuffList<>(integers);
         StuffList<Double> doubleStuffList = new StuffList<>(doubles);
 
-
         //StuffList<Integer> someIntegers = doubleStuffList;
-        System.out.println(integerStuffList.sameAveraige(doubleStuffList));
         //StuffList<String> stringStuffList = new StuffList<>();
+        System.out.println(integerStuffList.sameAveraige(doubleStuffList));
 
 
         System.out.println("before sort");

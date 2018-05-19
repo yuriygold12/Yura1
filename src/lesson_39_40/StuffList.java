@@ -22,14 +22,13 @@ public class StuffList<T extends Number> {
         }
     }
 
-    public double getAvariage() {
+    private double getAvariage() {
         double sum = 0;
         for (T item : stuff) {
             sum += item.doubleValue();
         }
         return sum / stuff.size();
     }
-
 
     //Metasumvolnuy argument abo while cart.
     public boolean sameAveraige(StuffList<?> list) {
