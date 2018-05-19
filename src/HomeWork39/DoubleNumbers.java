@@ -32,7 +32,7 @@ public class DoubleNumbers extends WorkGener<Double> {
     }
 
     @Override
-    public int FindElement() {
+    protected int FindElement() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введіть число яке ви шукаєте");
         Double value = sc.nextDouble();

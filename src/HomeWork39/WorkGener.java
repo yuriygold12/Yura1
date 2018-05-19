@@ -14,7 +14,7 @@ public abstract class WorkGener<T extends Number> {
 
     public abstract void addElement();
 
-    public abstract int FindElement();
+    protected abstract int FindElement();
 
     public void removeElement() {
         int index = FindElement();

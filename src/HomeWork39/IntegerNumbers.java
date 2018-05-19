@@ -23,7 +23,7 @@ public class IntegerNumbers extends WorkGener<Integer> {
         }
     }
 
-    public int FindElement() {
+    protected int FindElement() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введіть число яке ви шукаєте");
         Integer value = sc.nextInt();
