@@ -1,7 +1,5 @@
 package lesson_41_Generick_Intarface;
 
-//Тут якраз ми і реалізовую інтерфйс бо там у класі дженерік Ворк стоіть обмеження якщо цього не буде то туди обект цього не зможе
-//прийти .
 public class Order implements Identify<Integer> {
     private int id;
 

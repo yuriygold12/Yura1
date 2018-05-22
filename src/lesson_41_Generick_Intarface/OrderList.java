@@ -20,13 +20,11 @@ public class OrderList extends WorkwithGenerick<Order, Integer> {
         }
     }
 
-
     @Override
     public void addElement() {
         Random rand = new Random();
         numbersList.add(new Order(rand.nextInt(48) + 3));
     }
-
 
     public Order find(Integer key) {
         for (int i = 0; i < numbersList.size(); i++) {
