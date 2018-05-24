@@ -1,4 +1,4 @@
-package lesson_43;
+package lesson_43AndHomeWork_43;
 
 public class BinarySearch {
     // Returns index of x if it is present in arr[],

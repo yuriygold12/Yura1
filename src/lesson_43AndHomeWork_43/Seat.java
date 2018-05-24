@@ -1,4 +1,4 @@
-package lesson_43;
+package lesson_43AndHomeWork_43;
 
 public class Seat implements Comparable<Seat> {
     private final String number;
